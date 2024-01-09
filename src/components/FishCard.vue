@@ -1,5 +1,5 @@
 <template>
-    <div class="group text-white bg-black relative flex basis-[400px] aspect-square p-6 px-8 duration-700 overflow-hidden">
+    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 duration-700 overflow-hidden">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`" class="absolute top-0 left-0 blur-sm" alt="">
         <div class="flex flex-col">
             <div class="w-full flex justify-center h-full animate-bob">
@@ -48,7 +48,7 @@
                 class="w-full h-full absolute top-0 left-0 bg-black opacity-20 group-hover:opacity-60 duration-300 transition-all">
             </div>
             <div class="flex flex-col justify-end relative w-full h-full">
-                <h2 class="text-5xl">{{ data.name.toUpperCase() }}</h2>
+                <h2 class="text-5xl text-[200%]">{{ data.name.toUpperCase() }}</h2>
                 <p class="mt-2 h-0 overflow-hidden group-hover:h-[72px] transition-all duration-300">
                     {{ data.description }}
                 </p>

@@ -7,6 +7,9 @@ export default {
       animation: {
         'bob': 'bob 3s ease-in-out infinite'
       },
+      gridTemplateColumns: {
+        'fish': 'repeat(auto-fill, minmax(300px, 1fr))'
+      },
       keyframes: {
         bob: {
           '0%, 100%': { transform: 'translateY(10%)' },
@@ -15,6 +18,7 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 }
 

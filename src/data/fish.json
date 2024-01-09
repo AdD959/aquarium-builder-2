@@ -1,22 +1,16 @@
 [
-    {
-        "id": 0,
-        "name": "Adolfo's Catfish",
-        "type": "fresh",
-        "lifeSpan": 7,
-        "difficulty": 5,
-        "size": "large",
-        "description": "Irure excepteur Lorem irure sint. Ullamco sint veniam est Lorem magna aliquip duis fugiat nostrud incididunt laborum laboris Lorem.",
-        "imageFish": "adolfos-catfish.svg"
-    },
-    {
-        "id": 1,
-        "name": "Clown Killifish",
-        "type": "salt",
-        "lifeSpan": 11,
-        "difficulty": 1,
-        "size": "small",
-        "description": "Veniam laboris cupidatat ad voluptate mollit nulla elit aliqua tempor laboris proident ad aliqua aute labore.",
-        "imageFish": "clown-killifish.svg"
-    }
+    {"id": 0,"name": "Adolfo's Catfish","type": "fresh","lifeSpan": 7,"difficulty": 5,"size": "large","description": "Freshwater species with grand appearance, suitable for experienced aquarists.","imageFish": "adolfos-catfish.svg"},
+    {"id": 1,"name": "Clown Killifish","type": "salt","lifeSpan": 11,"difficulty": 1,"size": "small","description": "Vibrant saltwater fish known for playful behavior, ideal for smaller aquariums.","imageFish": "clown-killifish.svg"},
+    {"id": 2,"name": "African Pike","type": "fresh","lifeSpan": 8,"difficulty": 4,"size": "medium","description": "Predatory freshwater fish with mesmerizing patterns, suited for intermediate care.","imageFish": "african-pike.svg"},
+    {"id": 3,"name": "Bala Shark","type": "fresh","lifeSpan": 10,"difficulty": 3,"size": "medium","description": "Silver-colored freshwater shark species known for its graceful movements.","imageFish": "bala-shark.svg"},
+    {"id": 4,"name": "Banded Butterflyfish","type": "salt","lifeSpan": 6,"difficulty": 2,"size": "small","description": "Colorful saltwater fish with distinctive bands, suitable for reef aquariums.","imageFish": "banded-butterflyfish.svg"},
+    {"id": 5,"name": "Banggai Cardinalfish","type": "salt","lifeSpan": 4,"difficulty": 3,"size": "small","description": "Saltwater fish characterized by stripes, often kept for its community-friendly nature.","imageFish": "banggai-cardinalfish.svg"},
+    {"id": 6,"name": "Bichir","type": "fresh","lifeSpan": 15,"difficulty": 4,"size": "medium","description": "Ancient freshwater fish with armored scales, requiring dedicated care and space.","imageFish": "bichir.svg"},
+    {"id": 7,"name": "Black Molly","type": "fresh","lifeSpan": 3,"difficulty": 2,"size": "small","description": "Adaptable freshwater fish known for its lively nature, suitable for community tanks.","imageFish": "black-molly.svg"},
+    {"id": 8,"name": "Black Pacu","type": "fresh","lifeSpan": 20,"difficulty": 4,"size": "large","description": "Gentle giant in freshwater, reaching impressive size, ideal for spacious setups.","imageFish": "black-pacu.svg"},
+    {"id": 9,"name": "Black Shark","type": "fresh","lifeSpan": 8,"difficulty": 3,"size": "medium","description": "Sociable freshwater species with sleek appearance, adding intrigue to aquariums.","imageFish": "black-shark.svg"},
+    {"id": 10,"name": "Black Tetra","type": "fresh","lifeSpan": 5,"difficulty": 2,"size": "small","description": "Schooling freshwater fish with dark elegance, suitable for smaller aquariums.","imageFish": "black-tetra.svg"},
+    {"id": 11,"name": "Bleeker's Parrotfish","type": "salt","lifeSpan": 12,"difficulty": 4,"size": "medium","description": "Herbivorous saltwater species bringing tropical vibrancy to aquariums.","imageFish": "bleekers-parrotfish.svg"},
+    {"id": 12,"name": "Blood Parrot","type": "fresh","lifeSpan": 15,"difficulty": 3,"size": "medium","description": "Freshwater fish with unique appearance and friendly demeanor, adding color to tanks.","imageFish": "blood-parrot.svg"},
+    {"id": 13,"name": "Blue Acara","type": "fresh","lifeSpan": 8,"difficulty": 3,"size": "medium","description": "Cichlid species with vibrant blue hues, creating a striking focal point in aquariums.","imageFish": "blue-acara.svg"}
 ]
