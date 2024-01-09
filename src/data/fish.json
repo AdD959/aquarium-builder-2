@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "name": "Adolfo's Catfish",
+        "type": "fresh",
+        "lifeSpan": 7,
+        "difficulty": 5,
+        "size": "large",
+        "description": "Irure excepteur Lorem irure sint. Ullamco sint veniam est Lorem magna aliquip duis fugiat nostrud incididunt laborum laboris Lorem.",
+        "imageFish": "adolfos-catfish.svg"
+    },
+    {
+        "id": 1,
+        "name": "Clown Killifish",
+        "type": "salt",
+        "lifeSpan": 11,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Veniam laboris cupidatat ad voluptate mollit nulla elit aliqua tempor laboris proident ad aliqua aute labore.",
+        "imageFish": "clown-killifish.svg"
+    }
+]
