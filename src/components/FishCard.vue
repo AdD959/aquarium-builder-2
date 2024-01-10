@@ -39,9 +39,10 @@
                 class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-60 duration-300 transition-all">
             </div>
             <div class="w-full flex justify-center h-full animate-bob">
-                <img class="w-2/3 absolute group-hover:w-1/3 group-hover:blur-[1px] top-1/3 transition-all rotate-[20deg] group-hover:translate-x-[-300px] group-hover:translate-y-[-100px] delay-0 duration-0 group-hover:duration-700"
+                <img class="w-2/3 absolute group-hover:w-1/3 group-hover:blur-[1px] top-1/2 -translate-y-1/2 transition-all rotate-[20deg] group-hover:translate-x-[-300px] group-hover:translate-y-[-100px] delay-0 duration-0 group-hover:duration-700"
                     :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
-                <img class="w-2/3 group-hover:w-1/3 group-hover:blur-[1px] transition-all rotate-[20deg] top-1/3 translate-x-[350px] translate-y-[200px] duration-0 group-hover:duration-700 delay-0 group-hover:translate-x-0 group-hover:translate-y-0"
+                <img :class="size"
+                    class="w-2/3 absolute group-hover:blur-[1px] transition-all rotate-[20deg] top-1/3 translate-x-[350px] translate-y-[200px] duration-0 group-hover:duration-700 delay-0 group-hover:translate-x-0 group-hover:-translate-y-1/3"
                     :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                 <img class="w-1/3 group-hover:blur-[1px] grayscale transition-all group-hover:duration-1000 group-hover:delay-300 ease-linear rotate-[20deg] absolute right-[-100%] bottom-[-80%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
                     :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
@@ -82,10 +83,24 @@ export default {
     data() {
         return {
             randomIndex: 1,
+            size: ''
         }
     },
     mounted() {
         this.randomIndex = Math.floor(Math.random() * 6) + 1
+        this.size = this.getSize()
     },
+    methods: {
+        getSize() {
+            console.log(this.data.size)
+            if (this.data.size === 'small') {
+                return 'group-hover:w-1/3'
+            } else if (this.data.size === 'medium') {
+                return 'group-hover:w-2/3'
+            } else {
+                return 'group-hover:w-full'
+            }
+        }
+    }
 }
 </script>

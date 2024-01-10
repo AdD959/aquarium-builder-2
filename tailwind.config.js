@@ -2,6 +2,11 @@
 export default {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   content: [],
+  safelist: [
+    'group-hover:w-1/3',
+    'group-hover:w-2/3',
+    'group-hover:w-full',
+  ],
   theme: {
     extend: {
       animation: {
