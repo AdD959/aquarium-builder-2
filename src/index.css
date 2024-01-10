@@ -2,3 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+  .is-link {
+    @apply before:absolute before:h-[1px] before:w-0 before:bg-white hover:before:w-full before:-bottom-1 before:duration-200 before:transition-all
+  }
+}
