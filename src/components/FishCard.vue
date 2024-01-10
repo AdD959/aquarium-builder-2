@@ -90,7 +90,6 @@ export default {
     mounted() {
         this.randomIndex = Math.floor(Math.random() * 6) + 1
         this.randomDelay = Math.floor(Math.random() * 11) * 300
-        console.log(this.randomDelay)
         this.size = this.getSize()
     },
     methods: {
