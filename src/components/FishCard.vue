@@ -38,20 +38,20 @@
             <div
                 class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-60 duration-300 transition-all">
             </div>
-            <div class="w-full flex justify-center h-full animate-bob">
+            <div :class="`animation-delay-[-${randomDelay}ms]`" class="w-full flex justify-center h-full animate-bob">
+                <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 group-hover:delay-300 ease-linear rotate-[20deg] absolute right-[-100%] bottom-[-80%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
+                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
+                <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 delay-400 ease-linear rotate-[20deg] absolute right-[-90%] bottom-[-150%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
+                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                 <img class="w-2/3 absolute group-hover:w-1/3 group-hover:blur-[1px] top-1/2 -translate-y-1/2 transition-all rotate-[20deg] group-hover:translate-x-[-300px] group-hover:translate-y-[-100px] delay-0 duration-0 group-hover:duration-700"
                     :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                 <img :class="size"
-                    class="w-2/3 absolute group-hover:blur-[1px] transition-all rotate-[20deg] top-1/3 translate-x-[350px] translate-y-[200px] duration-0 group-hover:duration-700 delay-0 group-hover:translate-x-0 group-hover:-translate-y-1/3"
-                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
-                <img class="w-1/3 group-hover:blur-[1px] grayscale transition-all group-hover:duration-1000 group-hover:delay-300 ease-linear rotate-[20deg] absolute right-[-100%] bottom-[-80%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
-                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
-                <img class="w-1/3 group-hover:blur-[1px] grayscale transition-all group-hover:duration-700 delay-400 ease-linear rotate-[20deg] absolute right-[-90%] bottom-[-150%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
+                    class="w-2/3 absolute group-hover:blur-[1px] transition-all rotate-[20deg] top-1/3 translate-x-[350px] translate-y-[200px] duration-0 group-hover:duration-700 delay-0 group-hover:translate-x-0 group-hover:-translate-y-1/3 group-hover:delay-300"
                     :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
             </div>
             <div class="flex flex-col justify-end relative w-full h-full">
-                <h2 class="text-5xl text-[200%] group">{{ data.name.toUpperCase() }}</h2>
-                <p class="max-h-0 overflow-hidden group-hover:max-h-[84px] transition-all duration-300 mt-2 mb-3">
+                <h2 class="text-5xl text-[200%] cursor-default">{{ data.name.toUpperCase() }}</h2>
+                <p class="max-h-0 overflow-hidden group-hover:max-h-[96px] transition-all duration-300 mt-2 mb-3 cursor-default">
                     {{ data.description }}
                 </p>
                 <div class="flex justify-between">
@@ -83,16 +83,18 @@ export default {
     data() {
         return {
             randomIndex: 1,
+            randomDelay: 0,
             size: ''
         }
     },
     mounted() {
         this.randomIndex = Math.floor(Math.random() * 6) + 1
+        this.randomDelay = Math.floor(Math.random() * 11) * 300
+        console.log(this.randomDelay)
         this.size = this.getSize()
     },
     methods: {
         getSize() {
-            console.log(this.data.size)
             if (this.data.size === 'small') {
                 return 'group-hover:w-1/3'
             } else if (this.data.size === 'medium') {

@@ -1,16 +1,1212 @@
 [
-    {"id": 0,"name": "Adolfo's Catfish","type": "fresh","lifeSpan": 7,"difficulty": 5,"size": "large","description": "Freshwater species with grand appearance, suitable for experienced aquarists.","imageFish": "adolfos-catfish.svg"},
-    {"id": 1,"name": "Clown Killifish","type": "salt","lifeSpan": 11,"difficulty": 1,"size": "small","description": "Vibrant saltwater fish known for playful behavior, ideal for smaller aquariums.","imageFish": "clown-killifish.svg"},
-    {"id": 2,"name": "African Pike","type": "fresh","lifeSpan": 8,"difficulty": 4,"size": "medium","description": "Predatory freshwater fish with mesmerizing patterns, suited for intermediate care.","imageFish": "african-pike.svg"},
-    {"id": 3,"name": "Bala Shark","type": "fresh","lifeSpan": 10,"difficulty": 3,"size": "medium","description": "Silver-colored freshwater shark species known for its graceful movements.","imageFish": "bala-shark.svg"},
-    {"id": 4,"name": "Banded Butterflyfish","type": "salt","lifeSpan": 6,"difficulty": 2,"size": "small","description": "Colorful saltwater fish with distinctive bands, suitable for reef aquariums.","imageFish": "banded-butterflyfish.svg"},
-    {"id": 5,"name": "Banggai Cardinalfish","type": "salt","lifeSpan": 4,"difficulty": 3,"size": "small","description": "Saltwater fish characterized by stripes, often kept for its community-friendly nature.","imageFish": "banggai-cardinalfish.svg"},
-    {"id": 6,"name": "Bichir","type": "fresh","lifeSpan": 15,"difficulty": 4,"size": "medium","description": "Ancient freshwater fish with armored scales, requiring dedicated care and space.","imageFish": "bichir.svg"},
-    {"id": 7,"name": "Black Molly","type": "fresh","lifeSpan": 3,"difficulty": 2,"size": "small","description": "Adaptable freshwater fish known for its lively nature, suitable for community tanks.","imageFish": "black-molly.svg"},
-    {"id": 8,"name": "Black Pacu","type": "fresh","lifeSpan": 20,"difficulty": 4,"size": "large","description": "Gentle giant in freshwater, reaching impressive size, ideal for spacious setups.","imageFish": "black-pacu.svg"},
-    {"id": 9,"name": "Black Shark","type": "fresh","lifeSpan": 8,"difficulty": 3,"size": "medium","description": "Sociable freshwater species with sleek appearance, adding intrigue to aquariums.","imageFish": "black-shark.svg"},
-    {"id": 10,"name": "Black Tetra","type": "fresh","lifeSpan": 5,"difficulty": 2,"size": "small","description": "Schooling freshwater fish with dark elegance, suitable for smaller aquariums.","imageFish": "black-tetra.svg"},
-    {"id": 11,"name": "Bleeker's Parrotfish","type": "salt","lifeSpan": 12,"difficulty": 4,"size": "medium","description": "Herbivorous saltwater species bringing tropical vibrancy to aquariums.","imageFish": "bleekers-parrotfish.svg"},
-    {"id": 12,"name": "Blood Parrot","type": "fresh","lifeSpan": 15,"difficulty": 3,"size": "medium","description": "Freshwater fish with unique appearance and friendly demeanor, adding color to tanks.","imageFish": "blood-parrot.svg"},
-    {"id": 13,"name": "Blue Acara","type": "fresh","lifeSpan": 8,"difficulty": 3,"size": "medium","description": "Cichlid species with vibrant blue hues, creating a striking focal point in aquariums.","imageFish": "blue-acara.svg"}
+    {
+        "id": 0,
+        "name": "Adolfo's Catfish",
+        "type": "fresh",
+        "lifeSpan": 7,
+        "difficulty": 5,
+        "size": "large",
+        "description": "Freshwater species with grand appearance, suitable for experienced aquarists.",
+        "imageFish": "adolfos-catfish.svg"
+    },
+    {
+        "id": 1,
+        "name": "Clown Killifish",
+        "type": "salt",
+        "lifeSpan": 11,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Vibrant saltwater fish known for playful behavior, ideal for smaller aquariums.",
+        "imageFish": "clown-killifish.svg"
+    },
+    {
+        "id": 2,
+        "name": "African Pike",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 4,
+        "size": "medium",
+        "description": "Predatory freshwater fish with mesmerizing patterns, suited for intermediate care.",
+        "imageFish": "african-pike.svg"
+    },
+    {
+        "id": 3,
+        "name": "Bala Shark",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Silver-colored freshwater shark species known for its graceful movements.",
+        "imageFish": "bala-shark.svg"
+    },
+    {
+        "id": 4,
+        "name": "Banded Butterflyfish",
+        "type": "salt",
+        "lifeSpan": 6,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Colorful saltwater fish with distinctive bands, suitable for reef aquariums.",
+        "imageFish": "banded-butterflyfish.svg"
+    },
+    {
+        "id": 5,
+        "name": "Banggai Cardinalfish",
+        "type": "salt",
+        "lifeSpan": 4,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Saltwater fish characterized by stripes, often kept for its community-friendly nature.",
+        "imageFish": "banggai-cardinalfish.svg"
+    },
+    {
+        "id": 6,
+        "name": "Bichir",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 4,
+        "size": "medium",
+        "description": "Ancient freshwater fish with armored scales, requiring dedicated care and space.",
+        "imageFish": "bichir.svg"
+    },
+    {
+        "id": 7,
+        "name": "Black Molly",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Adaptable freshwater fish known for its lively nature, suitable for community tanks.",
+        "imageFish": "black-molly.svg"
+    },
+    {
+        "id": 8,
+        "name": "Black Pacu",
+        "type": "fresh",
+        "lifeSpan": 20,
+        "difficulty": 4,
+        "size": "large",
+        "description": "Gentle giant in freshwater, reaching impressive size, ideal for spacious setups.",
+        "imageFish": "black-pacu.svg"
+    },
+    {
+        "id": 9,
+        "name": "Black Shark",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Sociable freshwater species with sleek appearance, adding intrigue to aquariums.",
+        "imageFish": "black-shark.svg"
+    },
+    {
+        "id": 10,
+        "name": "Black Tetra",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Schooling freshwater fish with dark elegance, suitable for smaller aquariums.",
+        "imageFish": "black-tetra.svg"
+    },
+    {
+        "id": 11,
+        "name": "Bleeker's Parrotfish",
+        "type": "salt",
+        "lifeSpan": 12,
+        "difficulty": 4,
+        "size": "medium",
+        "description": "Herbivorous saltwater species bringing tropical vibrancy to aquariums.",
+        "imageFish": "bleekers-parrotfish.svg"
+    },
+    {
+        "id": 12,
+        "name": "Blood Parrot",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Freshwater fish with unique appearance and friendly demeanor, adding color to tanks.",
+        "imageFish": "blood-parrot.svg"
+    },
+    {
+        "id": 13,
+        "name": "Blue Acara",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Cichlid species with vibrant blue hues, creating a striking focal point in aquariums.",
+        "imageFish": "blue-acara.svg"
+    },
+    {
+        "id": 14,
+        "name": "Blue Botia",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Botia loach species with striking blue coloration, known for active behavior.",
+        "imageFish": "blue-botia.svg"
+    },
+    {
+        "id": 15,
+        "name": "Blue Dolphin Moorii",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 4,
+        "size": "large",
+        "description": "Moorii cichlid displaying stunning blue shades, suitable for spacious setups.",
+        "imageFish": "blue-dolphin-moorii.svg"
+    },
+    {
+        "id": 16,
+        "name": "Bluefin Notho",
+        "type": "fresh",
+        "lifeSpan": 2,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Colorful killifish with blue fins, an active and vibrant addition to aquariums.",
+        "imageFish": "bluefin-notho.svg"
+    },
+    {
+        "id": 17,
+        "name": "Bottom Swordtail",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Swordtail species known for bottom-dwelling habits, adding diversity to tanks.",
+        "imageFish": "bottom-swordtail.svg"
+    },
+    {
+        "id": 18,
+        "name": "Brycon",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Brycon species, a schooling fish with silver coloring, ideal for community setups.",
+        "imageFish": "brycon.svg"
+    },
+    {
+        "id": 19,
+        "name": "Bubble Eye Goldfish",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Distinctive goldfish breed with fluid-filled sacs beneath their eyes, a unique sight.",
+        "imageFish": "bubble-eye-goldfish.svg"
+    },
+    {
+        "id": 20,
+        "name": "Celestial Eye",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Goldfish variety with upward-facing eyes, adding charm to freshwater aquariums.",
+        "imageFish": "celestial-eye.svg"
+    },
+    {
+        "id": 21,
+        "name": "Cherry Barb",
+        "type": "fresh",
+        "lifeSpan": 4,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Small barb species with vibrant red coloration, suitable for community setups.",
+        "imageFish": "cherry-barb.svg"
+    },
+    {
+        "id": 22,
+        "name": "Chinese High-Fin Banded Shark",
+        "type": "fresh",
+        "lifeSpan": 25,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Long-lived, high-finned shark species, requiring a spacious freshwater environment.",
+        "imageFish": "chinese-high-fin-banded-shark.svg"
+    },
+    {
+        "id": 23,
+        "name": "Clown Loach",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Colorful loach species with distinctive patterns, known for its playful behavior.",
+        "imageFish": "clown-loach.svg"
+    },
+    {
+        "id": 24,
+        "name": "Clownfish",
+        "type": "salt",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Iconic saltwater fish, known for symbiotic relationships with sea anemones.",
+        "imageFish": "clownfish.svg"
+    },
+    {
+        "id": 25,
+        "name": "Comb Tail Betta",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Betta splendens with unique comb-like tail, showcasing individual personality traits.",
+        "imageFish": "comb-tail-betta.svg"
+    },
+    {
+        "id": 26,
+        "name": "Comet",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Long-tailed goldfish variety, known for its graceful and comet-like appearance.",
+        "imageFish": "comet.svg"
+    },
+    {
+        "id": 27,
+        "name": "Crown Tail Betta",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Betta splendens with elaborate crown-like tails, adding elegance to freshwater tanks.",
+        "imageFish": "crown-tail-betta.svg"
+    },
+    {
+        "id": 28,
+        "name": "Crown Tail Betta",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Betta splendens with elaborate crown-like tails, adding elegance to freshwater tanks.",
+        "imageFish": "crown-tail-betta2.svg"
+    },
+    {
+        "id": 29,
+        "name": "Cuckoo Squeker",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Synodontis species with cuckoo-like appearance, a distinctive addition to freshwater setups.",
+        "imageFish": "cuckoo-squeker.svg"
+    },
+    {
+        "id": 30,
+        "name": "Delta Tail Guppy",
+        "type": "fresh",
+        "lifeSpan": 2,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Guppy with delta-shaped tail, known for vibrant colors and active behavior.",
+        "imageFish": "delta-tail-guppy.svg"
+    },
+    {
+        "id": 31,
+        "name": "Diamond Tetra",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Tetra species with diamond-shaped patterns, a schooling fish for community setups.",
+        "imageFish": "diamond-tetra.svg"
+    },
+    {
+        "id": 32,
+        "name": "Dragon Goby",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Goby species with dragon-like appearance, preferring sandy substrates in aquariums.",
+        "imageFish": "dragon-goby.svg"
+    },
+    {
+        "id": 33,
+        "name": "Dwarf Gourami",
+        "type": "fresh",
+        "lifeSpan": 4,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Small gourami species with vibrant colors, suitable for peaceful community tanks.",
+        "imageFish": "dwarf-gourami.svg"
+    },
+    {
+        "id": 34,
+        "name": "Dwarf Loach",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Loach species suitable for smaller setups, known for its sociable behavior.",
+        "imageFish": "dwarf-loach.svg"
+    },
+    {
+        "id": 35,
+        "name": "Electric Yellow Cichlid",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Yellow cichlid species with electrifying coloration, ideal for freshwater cichlid tanks.",
+        "imageFish": "electric-yellow-cichlid.svg"
+    },
+    {
+        "id": 36,
+        "name": "Elephant Ear Betta",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Betta splendens with distinctive pectoral fins resembling elephant ears, a captivating choice.",
+        "imageFish": "elephant-ear-betta.svg"
+    },
+    {
+        "id": 37,
+        "name": "Elephantnose Fish",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 4,
+        "size": "medium",
+        "description": "Unique fish with elongated nose, sensitive to water conditions, prefers peaceful setups.",
+        "imageFish": "elephantnose-fish.svg"
+    },
+    {
+        "id": 38,
+        "name": "Emperor Angelfish",
+        "type": "salt",
+        "lifeSpan": 15,
+        "difficulty": 4,
+        "size": "medium",
+        "description": "Colorful marine angelfish species, known for its vibrant appearance in saltwater aquariums.",
+        "imageFish": "emporer-angelfish.svg"
+    },
+    {
+        "id": 39,
+        "name": "Endlers Livebearer",
+        "type": "fresh",
+        "lifeSpan": 2,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Colorful livebearer species, resembling miniature guppies, suitable for smaller aquariums.",
+        "imageFish": "endlers-livebearer.svg"
+    },
+    {
+        "id": 40,
+        "name": "Fan Tail Guppy",
+        "type": "fresh",
+        "lifeSpan": 2,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Guppy with fan-shaped tail, admired for its vibrant colors and active behavior.",
+        "imageFish": "fan-tail-guppy.svg"
+    },
+    {
+        "id": 41,
+        "name": "Freshwater Butterflyfish",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Small butterflyfish species adapted to freshwater environments, adding unique beauty to tanks.",
+        "imageFish": "freshwater-butterflyfish.svg"
+    },
+    {
+        "id": 42,
+        "name": "Frontosa",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 4,
+        "size": "large",
+        "description": "Frontosa cichlid species with distinctive hump on its head, ideal for larger aquariums.",
+        "imageFish": "frontosa.svg"
+    },
+    {
+        "id": 43,
+        "name": "German Blue Ram",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Colorful cichlid species with distinctive blue coloration, requiring stable water conditions.",
+        "imageFish": "german-blue-ram.svg"
+    },
+    {
+        "id": 44,
+        "name": "Giant Gourami",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Large gourami species with impressive size, known for its peaceful temperament in tanks.",
+        "imageFish": "giant-gourami.svg"
+    },
+    {
+        "id": 45,
+        "name": "Glass Catfish",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Transparent catfish species, adding a unique and almost invisible charm to aquariums.",
+        "imageFish": "glass-catfish.svg"
+    },
+    {
+        "id": 46,
+        "name": "Gold Nugget Pleco",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Plecostomus species with golden spots, appreciated for its algae-eating capabilities in tanks.",
+        "imageFish": "gold-nugget-pleco.svg"
+    },
+    {
+        "id": 47,
+        "name": "Golden Orfe",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "large",
+        "description": "Sleek freshwater fish with golden coloring, suitable for larger outdoor pond setups.",
+        "imageFish": "golden-orfe.svg"
+    },
+    {
+        "id": 48,
+        "name": "Golden Oto",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Small freshwater catfish species, known for its algae-eating habits in community tanks.",
+        "imageFish": "golden-oto.svg"
+    },
+    {
+        "id": 49,
+        "name": "Goldfish (Common)",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Classic freshwater fish with various color variations, suitable for community aquariums.",
+        "imageFish": "goldfish-common.svg"
+    },
+    {
+        "id": 50,
+        "name": "Green Gold Catfish",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Catfish species with greenish-gold coloring, adding a vibrant touch to freshwater setups.",
+        "imageFish": "green-gold-catfish.svg"
+    },
+    {
+        "id": 51,
+        "name": "Green Swordtail",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Swordtail species with vibrant green coloring, suitable for community aquariums.",
+        "imageFish": "green-swordtail.svg"
+    },
+    {
+        "id": 52,
+        "name": "Green Terror",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Colorful cichlid species known for its vibrant green coloration and territorial behavior.",
+        "imageFish": "green-terror.svg"
+    },
+    {
+        "id": 53,
+        "name": "Harlequin Rasbora",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Schooling rasbora species with distinctive harlequin pattern, suitable for community setups.",
+        "imageFish": "harlequin-rasbora.svg"
+    },
+    {
+        "id": 54,
+        "name": "Hatchetfish",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Freshwater fish with hatchet-shaped body, known for its ability to jump and glide.",
+        "imageFish": "hatchetfish.svg"
+    },
+    {
+        "id": 55,
+        "name": "Horseface Loach",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Loach species with horse-like face, requiring hiding spots in freshwater aquariums.",
+        "imageFish": "horseface-loach.svg"
+    },
+    {
+        "id": 56,
+        "name": "Iridescent Shark",
+        "type": "fresh",
+        "lifeSpan": 20,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Large catfish species with iridescent scales, known for its active behavior in tanks.",
+        "imageFish": "iridescent-shark.svg"
+    },
+    {
+        "id": 57,
+        "name": "Jaguar Cichlid",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Cichlid species with jaguar-like patterning, requiring larger freshwater aquariums.",
+        "imageFish": "jaguar-chichlid.svg"
+    },
+    {
+        "id": 58,
+        "name": "Jewel Fish",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Colorful cichlid species with jewel-like hues, known for its striking appearance.",
+        "imageFish": "jewel-fish.svg"
+    },
+    {
+        "id": 59,
+        "name": "Kissing Gourami",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Distinctive behavior with puckering mouths, a peaceful addition to community freshwater tanks.",
+        "imageFish": "kissing-gourami.svg"
+    },
+    {
+        "id": 60,
+        "name": "Knifefish",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Nocturnal predator with a knife-like body, requiring hiding spots in freshwater setups.",
+        "imageFish": "knifefish.svg"
+    },
+    {
+        "id": 61,
+        "name": "Knight Goby",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Bottom-dwelling goby known for its armor-like appearance, suitable for freshwater aquariums.",
+        "imageFish": "knight-goby.svg"
+    },
+    {
+        "id": 62,
+        "name": "Koi Carp",
+        "type": "fresh",
+        "lifeSpan": 20,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Colorful and ornamental carp species, known for its distinctive patterns in freshwater ponds.",
+        "imageFish": "koi-carp.svg"
+    },
+    {
+        "id": 63,
+        "name": "Kribensis",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Dwarf cichlid species displaying vibrant colors, creating a focal point in freshwater tanks.",
+        "imageFish": "kribensis.svg"
+    },
+    {
+        "id": 64,
+        "name": "Lionfish",
+        "type": "salt",
+        "lifeSpan": 15,
+        "difficulty": 4,
+        "size": "medium",
+        "description": "Venomous saltwater fish with ornate fins, requiring careful handling in specialized aquariums.",
+        "imageFish": "lion-fish.svg"
+    },
+    {
+        "id": 65,
+        "name": "Lionhead Goldfish",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Fancy goldfish variety with a distinctive hood or 'wen' on its head, a charming addition.",
+        "imageFish": "lionhead-goldfish.svg"
+    },
+    {
+        "id": 66,
+        "name": "Lionhead",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Goldfish variety known for its hood or 'wen' on the head, adding charm to freshwater setups.",
+        "imageFish": "lionhead.svg"
+    },
+    {
+        "id": 67,
+        "name": "Lyre Tail Guppy",
+        "type": "fresh",
+        "lifeSpan": 2,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Guppy variety with a distinctive lyre-shaped tail, appreciated for its color and elegance.",
+        "imageFish": "lire-tail-guppy.svg"
+    },
+    {
+        "id": 68,
+        "name": "Lyre Tail Molly",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Molly variety with a distinctive lyre-shaped tail, known for its adaptability in freshwater tanks.",
+        "imageFish": "lire-tail-molly.svg"
+    },
+    {
+        "id": 69,
+        "name": "Loach Catfish",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Catfish species with a sleek appearance, contributing to algae control in community freshwater tanks.",
+        "imageFish": "loach-catfish.svg"
+    },
+    {
+        "id": 70,
+        "name": "Mandarin Fish",
+        "type": "salt",
+        "lifeSpan": 8,
+        "difficulty": 4,
+        "size": "small",
+        "description": "Colorful saltwater fish with intricate patterns, best suited for well-established reef aquariums.",
+        "imageFish": "mandarin-fish.svg"
+    },
+    {
+        "id": 71,
+        "name": "Moonlight Gourami",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Peaceful gourami species with a distinctive moon-shaped marking, a charming freshwater addition.",
+        "imageFish": "moonlight-gourami.svg"
+    },
+    {
+        "id": 72,
+        "name": "Mosquitofish",
+        "type": "fresh",
+        "lifeSpan": 2,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Small freshwater fish known for its mosquito larva-eating habits, suitable for community tanks.",
+        "imageFish": "mosquitofish.svg"
+    },
+    {
+        "id": 73,
+        "name": "Neon Tetra",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Schooling freshwater tetra with vibrant neon colors, a classic choice for community aquariums.",
+        "imageFish": "neon-tetra.svg"
+    },
+    {
+        "id": 74,
+        "name": "Opaline Gourami",
+        "type": "fresh",
+        "lifeSpan": 4,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Gourami variety with opalescent scales, bringing a touch of elegance to freshwater community tanks.",
+        "imageFish": "opaline-gourami.svg"
+    },
+    {
+        "id": 75,
+        "name": "Oranda Red Cap",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Fancy goldfish variety with a distinctive red hood or 'wen' on its head, adding charm.",
+        "imageFish": "oranda-red-cap.svg"
+    },
+    {
+        "id": 76,
+        "name": "Paradise Fish",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Colorful labyrinth fish with vibrant fins, suitable for freshwater community aquariums.",
+        "imageFish": "paradise-fish.svg"
+    },
+    {
+        "id": 77,
+        "name": "Pearl Danio",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Danio species with pearly scales, known for its schooling behavior in freshwater setups.",
+        "imageFish": "pearl-danio.svg"
+    },
+    {
+        "id": 78,
+        "name": "Piranha",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Carnivorous freshwater fish known for sharp teeth and group hunting behavior in larger tanks.",
+        "imageFish": "piranha.svg"
+    },
+    {
+        "id": 79,
+        "name": "Plakat Betta",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Short-finned Betta variety known for its vibrant colors and aggressive yet fascinating behavior.",
+        "imageFish": "plakat-betta.svg"
+    },
+    {
+        "id": 80,
+        "name": "Puffer Fish",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Fascinating freshwater fish with the ability to inflate when threatened, requiring specialized care.",
+        "imageFish": "puffer-fish.svg"
+    },
+    {
+        "id": 81,
+        "name": "Purple Goby",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Colorful goby species with a distinctive purple hue, adding vibrancy to freshwater aquariums.",
+        "imageFish": "purple-goby.svg"
+    },
+    {
+        "id": 82,
+        "name": "Queen Angelfish",
+        "type": "salt",
+        "lifeSpan": 15,
+        "difficulty": 4,
+        "size": "medium",
+        "description": "Majestic angelfish with vibrant colors and unique patterns, a stunning addition to saltwater tanks.",
+        "imageFish": "queen-angelfish.svg"
+    },
+    {
+        "id": 83,
+        "name": "Ranchu",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Fancy goldfish variety with a rounded body and distinctive tail, prized for its charming appearance.",
+        "imageFish": "ranchu.svg"
+    },
+    {
+        "id": 84,
+        "name": "Red-Eyed Tetra",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Tetra species with striking red eyes, known for its active schooling behavior in freshwater setups.",
+        "imageFish": "red-eyed-tetra.svg"
+    },
+    {
+        "id": 85,
+        "name": "Red Line Torpedo Barb",
+        "type": "fresh",
+        "lifeSpan": 6,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Barb species with distinctive red line markings, adding dynamic movement to freshwater aquariums.",
+        "imageFish": "red-line-torpedo-barb.svg"
+    },
+    {
+        "id": 86,
+        "name": "Red Phantom Tetra",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Tetra species with a phantom-like coloration, suitable for community freshwater aquariums.",
+        "imageFish": "red-phantom-tetra.svg"
+    },
+    {
+        "id": 87,
+        "name": "Red-Tailed Black Shark",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Distinctive shark species with a vibrant red tail, known for its territorial behavior in freshwater tanks.",
+        "imageFish": "red-tailed-black-shark.svg"
+    },
+    {
+        "id": 88,
+        "name": "Redtail Catfish",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Large catfish species with a red tail, requiring spacious freshwater tanks due to its size.",
+        "imageFish": "redtail-catfish.svg"
+    },
+    {
+        "id": 89,
+        "name": "Regal Bluetang",
+        "type": "salt",
+        "lifeSpan": 10,
+        "difficulty": 4,
+        "size": "medium",
+        "description": "Beautiful surgeonfish with a regal appearance, suitable for experienced saltwater aquarium enthusiasts.",
+        "imageFish": "regal-bluetang.svg"
+    },
+    {
+        "id": 90,
+        "name": "Ropefish",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Unique freshwater fish with a snake-like appearance, requiring hiding spots in aquarium setups.",
+        "imageFish": "ropefish.svg"
+    },
+    {
+        "id": 91,
+        "name": "Royal Angelfish",
+        "type": "salt",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Elegant angelfish species with royal blue and yellow coloring, a captivating addition to saltwater tanks.",
+        "imageFish": "royal-angelfish.svg"
+    },
+    {
+        "id": 92,
+        "name": "Rummy Nose Tetra",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Tetra species with a distinctive red 'nose,' known for its schooling behavior in freshwater setups.",
+        "imageFish": "rummy-nose-tetra.svg"
+    },
+    {
+        "id": 93,
+        "name": "Ryukin",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Fancy goldfish variety with a distinctive hump on its back, prized for its charming appearance.",
+        "imageFish": "ryukin.svg"
+    },
+    {
+        "id": 94,
+        "name": "Seahorse",
+        "type": "salt",
+        "lifeSpan": 5,
+        "difficulty": 4,
+        "size": "small",
+        "description": "Unique marine fish with a horse-like appearance, requiring specialized care in saltwater aquariums.",
+        "imageFish": "seahorse.svg"
+    },
+    {
+        "id": 95,
+        "name": "Shubunkin",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Goldfish variety with calico coloring, known for its energetic and playful behavior in freshwater tanks.",
+        "imageFish": "shubunkin.svg"
+    },
+    {
+        "id": 96,
+        "name": "Silver Arowana",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Large predatory fish with silver scales, requiring spacious freshwater tanks with proper cover.",
+        "imageFish": "silver-arowana.svg"
+    },
+    {
+        "id": 97,
+        "name": "Silver Dollar Fish",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Schooling fish with silvery scales, adding a dynamic and reflective touch to freshwater aquariums.",
+        "imageFish": "silver-dollar-fish.svg"
+    },
+    {
+        "id": 98,
+        "name": "Snakehead Fish",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Carnivorous freshwater fish with a snake-like appearance, requiring a secure and spacious tank.",
+        "imageFish": "snakehead-fish.svg"
+    },
+    {
+        "id": 99,
+        "name": "Southern Platy",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Colorful livebearer species with a peaceful nature, suitable for community freshwater aquariums.",
+        "imageFish": "southern-platy.svg"
+    },
+    {
+        "id": 100,
+        "name": "Spotted Gar",
+        "type": "fresh",
+        "lifeSpan": 20,
+        "difficulty": 3,
+        "size": "large",
+        "description": "Prehistoric-looking fish with distinctive spots, suitable for large freshwater aquariums.",
+        "imageFish": "spotted-gar.svg"
+    },
+    {
+        "id": 101,
+        "name": "Sterlet",
+        "type": "fresh",
+        "lifeSpan": 30,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Sturgeon species known for its elongated snout, a fascinating addition to freshwater setups.",
+        "imageFish": "sterlet.svg"
+    },
+    {
+        "id": 102,
+        "name": "Striped Raphael",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Catfish species with distinctive stripes, appreciated for its peaceful nature in community tanks.",
+        "imageFish": "striped-raphael.svg"
+    },
+    {
+        "id": 103,
+        "name": "Sunshine Peacock Cichlid",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Colorful cichlid species with vibrant hues, adding a touch of sunshine to freshwater setups.",
+        "imageFish": "sunshine-peacock-cichlid.svg"
+    },
+    {
+        "id": 104,
+        "name": "Super Delta Tail Betta",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Betta fish variety with elaborate and flowing fins, known for its striking appearance in aquariums.",
+        "imageFish": "super-delta-tail-betta.svg"
+    },
+    {
+        "id": 105,
+        "name": "Swordtail Guppy",
+        "type": "fresh",
+        "lifeSpan": 2,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Popular livebearer fish known for its colorful appearance and active behavior in freshwater tanks.",
+        "imageFish": "swordtail-guppy.svg"
+    },
+    {
+        "id": 106,
+        "name": "Tamasaba",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Japanese koi variety known for its beautiful coloration and graceful swimming in freshwater ponds.",
+        "imageFish": "tamasaba.svg"
+    },
+    {
+        "id": 107,
+        "name": "Telescope",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Goldfish variety with protruding eyes, admired for its unique appearance in freshwater aquariums.",
+        "imageFish": "telescope.svg"
+    },
+    {
+        "id": 108,
+        "name": "Threadfin Butterfly Fish",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Colorful and delicate fish with elongated fins, bringing elegance to freshwater aquariums.",
+        "imageFish": "threadfin-butterfly-fish.svg"
+    },
+    {
+        "id": 109,
+        "name": "Tiger Barb",
+        "type": "fresh",
+        "lifeSpan": 6,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Active and schooling fish known for its distinctive tiger-like stripes, a lively addition to aquariums.",
+        "imageFish": "tiger-barb.svg"
+    },
+    {
+        "id": 110,
+        "name": "Tire Track Eel",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Eel species with tire track-like patterns, suitable for well-established freshwater aquariums.",
+        "imageFish": "tire-track-eel.svg"
+    },
+    {
+        "id": 111,
+        "name": "Upside-Down Catfish",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Bottom-dwelling catfish known for its upside-down swimming behavior, adding a quirky touch to tanks.",
+        "imageFish": "upside-down-catfish.svg"
+    },
+    {
+        "id": 112,
+        "name": "Veil Tail Betta",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Betta fish variety with long, flowing fins, appreciated for its vibrant colors in freshwater aquariums.",
+        "imageFish": "veil-tail-betta2.svg"
+    },
+    {
+        "id": 114,
+        "name": "Veil Tail Guppy",
+        "type": "fresh",
+        "lifeSpan": 2,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Guppy fish variety with long and flowing tails, a popular and colorful addition to freshwater aquariums.",
+        "imageFish": "veil-tail-guppy.svg"
+    },
+    {
+        "id": 115,
+        "name": "Veiltail",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Goldfish variety with long, flowing fins, adding grace and beauty to freshwater aquariums.",
+        "imageFish": "veiltail.svg"
+    },
+    {
+        "id": 116,
+        "name": "Weather Loach",
+        "type": "fresh",
+        "lifeSpan": 10,
+        "difficulty": 2,
+        "size": "medium",
+        "description": "Loach species exhibiting unusual behavior before changes in weather, a charming addition to freshwater setups.",
+        "imageFish": "weather-loach.svg"
+    },
+    {
+        "id": 117,
+        "name": "White Cloud Mountain Minnow",
+        "type": "fresh",
+        "lifeSpan": 3,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Small and peaceful freshwater fish, ideal for community aquariums with coldwater setups.",
+        "imageFish": "white-cloud-mountain-minnow.svg"
+    },
+    {
+        "id": 118,
+        "name": "Yellow Longnose Butterflyfish",
+        "type": "salt",
+        "lifeSpan": 8,
+        "difficulty": 3,
+        "size": "medium",
+        "description": "Colorful marine fish with a distinctive long nose, adding tropical beauty to saltwater aquariums.",
+        "imageFish": "yellow-longnose-butterflyfish.svg"
+    },
+    {
+        "id": 119,
+        "name": "Zebra Danio",
+        "type": "fresh",
+        "lifeSpan": 5,
+        "difficulty": 1,
+        "size": "small",
+        "description": "Hardy and active freshwater fish with distinctive zebra-like stripes, suitable for community setups.",
+        "imageFish": "zebra-danio.svg"
+    },
+    {
+        "id": 120,
+        "name": "Zebra Loach",
+        "type": "fresh",
+        "lifeSpan": 8,
+        "difficulty": 2,
+        "size": "small",
+        "description": "Small loach species with striped patterns, adding activity and interest to freshwater aquariums.",
+        "imageFish": "zebra-loach.svg"
+    },
+    {
+        "id": 121,
+        "name": "Zebra Pleco",
+        "type": "fresh",
+        "lifeSpan": 15,
+        "difficulty": 3,
+        "size": "small",
+        "description": "Small catfish species with distinctive zebra-like patterns, prized for its unique appearance in freshwater setups.",
+        "imageFish": "zebra-pleco.svg"
+    }
 ]

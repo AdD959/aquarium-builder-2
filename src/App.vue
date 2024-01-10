@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import FishCard from './components/FishCard.vue'
 import fishLibrary from './data/fish.json'
 </script>
@@ -10,3 +9,22 @@ import fishLibrary from './data/fish.json'
     <FishCard v-for="fish in fishLibrary" :data="fish"/>
   </body>
 </template>
+
+
+<script lang="ts">  
+  export default {
+    components: {
+      FishCard
+    },
+    data() {
+      return {
+        fishLibrary
+      }
+    },
+    methods: {
+      getFish() {
+        return this.fishLibrary
+      }
+    },
+  }
+</script>
