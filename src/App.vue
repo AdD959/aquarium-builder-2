@@ -6,7 +6,7 @@ import fishLibrary from './data/fish.json'
 
 <template>
   <body class="grid grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] mt-10 gap-3 px-20">
-    <FishCard v-for="fish in fishLibrary" :data="fish"/>
+    <FishCard :data="fishLibrary[1]"/>
   </body>
 </template>
 

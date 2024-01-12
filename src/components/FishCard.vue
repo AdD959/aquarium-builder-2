@@ -1,8 +1,9 @@
 <template>
-    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 duration-700 overflow-hidden">
+    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 duration-700 overflow-hidden"
+        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
-        <div class="flex flex-col">
+        <div class="flex flex-col fish1">
             <div class="absolute w-[100px] bottom-0 right-0">
                 <div
                     class="translate-y-0 duration-0 opacity-20 ease-linear absolute translate-x-1 w-4 h-4 bg-white rounded-full  group-hover:translate-y-[-416px] group-hover:duration-[500ms] group-hover:delay-[500ms]">
@@ -38,20 +39,26 @@
             <div
                 class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-60 duration-300 transition-all">
             </div>
-            <div :class="`animation-delay-[-${randomDelay}ms]`" class="w-full flex justify-center h-full animate-bob">
-                <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 group-hover:delay-300 ease-linear rotate-[20deg] absolute right-[-100%] bottom-[-80%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
-                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
-                <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 delay-400 ease-linear rotate-[20deg] absolute right-[-90%] bottom-[-150%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
-                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
-                <img class="w-2/3 absolute group-hover:w-1/3 group-hover:blur-[1px] top-1/2 -translate-y-1/2 transition-all rotate-[20deg] group-hover:translate-x-[-300px] group-hover:translate-y-[-100px] delay-0 duration-0 group-hover:duration-700"
-                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
-                <img :class="size"
-                    class="w-2/3 absolute group-hover:blur-[1px] transition-all rotate-[20deg] top-1/3 translate-x-[350px] translate-y-[200px] duration-0 group-hover:duration-700 delay-0 group-hover:translate-x-0 group-hover:-translate-y-1/3 group-hover:delay-300"
-                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
+            <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
+                <!-- <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 group-hover:delay-300 ease-linear rotate-[20deg] absolute right-[-100%] bottom-[-80%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
+                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish"> -->
+                <!-- <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 delay-400 ease-linear rotate-[20deg] absolute right-[-90%] bottom-[-150%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
+                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish"> -->
+                <div class="w-2/3 absolute top-10 left-1/2 -translate-x-1/2" ref="fish1">
+                    <div class="animate-bob">
+                        <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
+                    </div>
+                </div>
+                <div class="w-2/3 absolute top-10 left-1/2 -translate-x-1/2" ref="fish2">
+                    <div class="animate-bob">
+                        <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
+                    </div>
+                </div>
             </div>
             <div class="flex flex-col justify-end relative w-full h-full">
                 <h2 class="text-5xl text-[200%] cursor-default">{{ data.name.toUpperCase() }}</h2>
-                <p class="max-h-0 overflow-hidden group-hover:max-h-[96px] transition-all duration-300 mt-2 mb-3 cursor-default">
+                <p
+                    class="max-h-0 overflow-hidden group-hover:max-h-[96px] transition-all duration-300 mt-2 mb-3 cursor-default">
                     {{ data.description }}
                 </p>
                 <div class="flex justify-between">
@@ -78,29 +85,60 @@
 </template>
 
 <script lang="ts">
+import { gsap } from 'gsap';
 export default {
     props: ['data'],
     data() {
         return {
             randomIndex: 1,
             randomDelay: 0,
-            size: ''
+            size: 0,
+            width: 0.666,
+            fish1TLM: null,
+            fish2TLM: null,
+            fish1: null,
+            fish2: null,
         }
     },
     mounted() {
         this.randomIndex = Math.floor(Math.random() * 6) + 1
         this.randomDelay = Math.floor(Math.random() * 11) * 300
         this.size = this.getSize()
+
+        this.fish1 = this.$refs.fish1 as HTMLElement;
+        this.fish2 = this.$refs.fish2 as HTMLElement;
+
+        this.fish1TLM = gsap.timeline({ paused: true })
+            .addLabel('start')
+            .from(this.fish1, { x: 300, y: 150 }).addLabel('center')
+            .to(this.fish1, { x: -300, y: -150 }).addLabel('end')
+        this.fish2TLM = gsap.timeline({ paused: true })
+            .addLabel('start')
+            .from(this.fish2, { x: 300, y: 150 }).addLabel('center')
+            .to(this.fish2, { x: -300, y: -150 }).addLabel('end')
+
+        this.fish1TLM.play('start').tweenTo(this.fish1TLM.nextLabel())
     },
     methods: {
         getSize() {
             if (this.data.size === 'small') {
-                return 'group-hover:w-1/3'
+                return 'w-1/3'
             } else if (this.data.size === 'medium') {
-                return 'group-hover:w-2/3'
+                return 'w-2/3'
             } else {
-                return 'group-hover:w-full'
+                return 'w-full'
             }
+        },
+        mouseEnter() {
+            if (!this.fish1TLM.isActive()) {
+                this.fish1TLM.play('center')
+            }
+            if (!this.fish2TLM.isActive()) {
+                this.fish2TLM.play('start').tweenTo(this.fish2TLM.nextLabel())
+            }
+        },
+        mouseLeave() {
+            // this.fish1TLM.reverse();
         }
     }
 }
