@@ -115,7 +115,7 @@ export default {
             .set(this.fish1, { x: 300, y: 150, scale: this.size }).addLabel('init')
             .to(this.fish1, { x: 300, y: 150, duration: this.duration1 }).addLabel('start')
             .to(this.fish1, { x: 0, y: 0, scale: this.size, duration: this.duration1 }).addLabel('center')
-            .to(this.fish1, { x: -300, y: -150, scale: this.size, duration: 1 }).addLabel('end')
+            .to(this.fish1, { x: -300, y: -150, duration: 0.5 }).addLabel('end')
 
         this.fish2TLM = gsap.timeline({ paused: true })
             .addLabel('start')
