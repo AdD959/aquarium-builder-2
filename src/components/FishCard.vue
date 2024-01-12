@@ -1,5 +1,5 @@
 <template>
-    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 duration-700 overflow-hidden"
+    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 duration-700"
         @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
@@ -40,10 +40,10 @@
                 class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-60 duration-300 transition-all">
             </div>
             <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
-                <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 group-hover:delay-300 ease-linear rotate-[20deg] absolute right-[-33%] bottom-[-10%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
+                <!-- <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 group-hover:delay-300 ease-linear rotate-[20deg] absolute right-[-33%] bottom-[-10%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
                     :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                 <img class="w-1/2 group-hover:blur-[5px] transition-all group-hover:duration-1000 delay-400 ease-linear rotate-[20deg] absolute right-[-50%] bottom-[0%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
-                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
+                    :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish"> -->
                 <div class="w-2/3 absolute top-10 left-1/2 -translate-x-1/2" ref="fish1">
                     <div class="animate-bob">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
@@ -112,21 +112,18 @@ export default {
 
         this.fish1TLM = gsap.timeline({ paused: true })
             .addLabel('start')
-            .set(this.fish1, { x: 300, y: 150, scale: this.size }).addLabel('init')
-            .to(this.fish1, { x: 300, y: 150, duration: this.duration1 }).addLabel('start')
-            .to(this.fish1, { x: 0, y: 0, scale: this.size, duration: this.duration1 }).addLabel('center')
+            .set(this.fish1, { x: 300, y: 150, scale: 1 }).addLabel('first')
+            .to(this.fish1, { x: 0, y: 0, duration: 0.5 }).addLabel('second')
             .to(this.fish1, { x: -300, y: -150, duration: 0.5 }).addLabel('end')
 
         this.fish2TLM = gsap.timeline({ paused: true })
             .addLabel('start')
-            .set(this.fish2, { x: 300, y: 150, scale: this.size }).addLabel('init')
-            .to(this.fish2, { x: 300, y: 150, duration: this.duration1 }).addLabel('start')
-            .to(this.fish2, { x: 0, y: 0, scale: this.size, duration: 1, ease: 'power1.out', delay: 0.4 }).addLabel('center')
-            .to(this.fish2, { x: -300, y: -150, scale: this.size, duration: this.duration2 }).addLabel('end')
+            .set(this.fish2, { x: 300, y: 150, scale: this.size }).addLabel('first')
+            .to(this.fish2, { x: 0, y: 0, scale: this.size, duration: 1, ease: 'power1.out', delay: 0.4 }).addLabel('second')
+            .to(this.fish2, { scale: 1, duration: 0.2 }).addLabel('end')
 
-        this.fish2TLM.play('start').pause()
+        this.fish2TLM.play('first').pause()
         this.fish1TLM.play('start').tweenTo(this.fish1TLM.nextLabel())
-        gsap.to(this.fish1, { scale: 0.66 })
 
     },
     methods: {
@@ -141,14 +138,16 @@ export default {
         },
         mouseEnter() {
             if (!this.fish1TLM.isActive()) {
-                this.fish1TLM.play('center')
+                this.fish1TLM.play('first')
             }
             if (!this.fish2TLM.isActive()) {
-                this.fish2TLM.play('start').tweenTo(this.fish2TLM.nextLabel())
+                this.fish2TLM.play('first').tweenTo(this.fish2TLM.nextLabel())
             }
         },
         mouseLeave() {
-            gsap.to(this.fish2, { scale: 0.66, duration: 0.2 })
+            if (!this.fish2TLM.isActive()) {
+               this.fish2TLM.play('second')
+            }
         }
     }
 }
