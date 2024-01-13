@@ -79,6 +79,7 @@
                         <div :class="data.difficulty >= 5 ? 'bg-red-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full">
                         </div>
                     </div>
+                    <img class="w-3" :src="`./src/assets/${data.type}.svg`" :alt="data.type">
                 </div>
             </div>
             <button
