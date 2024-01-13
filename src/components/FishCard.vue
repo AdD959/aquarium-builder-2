@@ -1,6 +1,6 @@
 <template>
     <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 overflow-hidden"
-        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card" :class="selected ? ' border-dashed border-4 border-white transition-all duration-00' : 'duration-700'">
+        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card" :class="selected ? 'border-dashed border-[20px] border-black transition-all duration-00' : 'duration-700'">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
         <div class="flex flex-col fish1">
