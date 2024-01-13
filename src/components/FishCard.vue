@@ -1,6 +1,6 @@
 <template>
-    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 duration-700 overflow-hidden"
-        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card">
+    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 overflow-hidden"
+        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card" :class="selected ? ' border-dashed border-4 border-white transition-all duration-00' : 'duration-700'">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
         <div class="flex flex-col fish1">
@@ -81,8 +81,8 @@
                     </div>
                 </div>
             </div>
-            <a href="#"
-                class="before:block pb-1 leading-3 text-2xl absolute top-6 -left-6 text-white group-hover:left-6 duration-20 duration-200 transition-all">+</a>
+            <button
+                class="before:block pb-1 leading-3 text-2xl absolute top-6 -left-6 text-white group-hover:left-6 duration-20 duration-200 transition-all" @click="selected = !selected">+</button>
             <a href="#"
                 class="w-8 h-8 flex items-center justify-center border border-white rounded-full absolute top-4 -right-8 text-white group-hover:right-4 duration-200 transition-all">i</a>
         </div>
@@ -106,6 +106,7 @@ export default {
             fish2: null,
             fish3: null,
             fish4: null,
+            selected: false
         }
     },
     mounted() {
