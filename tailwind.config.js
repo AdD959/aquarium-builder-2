@@ -17,6 +17,8 @@ export default {
     'animation-delay-[-2100ms]',
     'animation-delay-[-2400ms]',
     'animation-delay-[-2700ms]',
+    'w-20',
+    'w-40',
   ],
   theme: {
     extend: {

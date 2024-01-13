@@ -177,7 +177,8 @@
         "difficulty": 2,
         "size": "small",
         "description": "Swordtail species known for bottom-dwelling habits, adding diversity to tanks.",
-        "imageFish": "bottom-swordtail.svg"
+        "imageFish": "bottom-swordtail.svg",
+        "customWidth": "w-40"
     },
     {
         "id": 18,
@@ -937,7 +938,8 @@
         "difficulty": 4,
         "size": "small",
         "description": "Unique marine fish with a horse-like appearance, requiring specialized care in saltwater aquariums.",
-        "imageFish": "seahorse.svg"
+        "imageFish": "seahorse.svg",
+        "customWidth": "w-20"
     },
     {
         "id": 94,

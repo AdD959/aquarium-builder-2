@@ -1,5 +1,5 @@
 <template>
-    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 overflow-hidden"
+    <div class="group text-white bg-black relative flex aspect-square p-6 px-8 overflow-hidden"
         @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card" :class="selected ? 'border-dashed border-[20px] border-black transition-all duration-00' : 'duration-700'">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
@@ -40,20 +40,20 @@
                 class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-80 duration-300 transition-all">
             </div>
             <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
-                <div ref="fish3" class=" absolute right-[-100%] bottom-[30%]">
+                <div ref="fish3" class=" absolute right-[-110%] bottom-[20%]">
                     <img class="w-1/3 blur-[4px] rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`"
                         :alt="data.imageFish">
                 </div>
-                <div ref="fish4" class="fish4 absolute right-[-100%] bottom-[50%]">
+                <div ref="fish4" class="fish4 absolute right-[-110%] bottom-[50%]">
                     <img class="w-1/2 blur-[4px] rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`"
                         :alt="data.imageFish">
                 </div>
-                <div class="w-2/3 absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2" ref="fish1">
+                <div :class="data.customWidth ? data.customWidth : 'w-2/3'" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2" ref="fish1">
                     <div :class="`animation-delay-[-${randomDelay}ms]`" class="animate-bob">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                     </div>
                 </div>
-                <div class="w-2/3 absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:blur-[5px]"
+                <div :class="data.customWidth ? data.customWidth : 'w-2/3'" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:blur-[5px]"
                     ref="fish2">
                     <div class="animate-bob" :class="`animation-delay-[-${randomDelay}ms]`">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
@@ -123,11 +123,11 @@ export default {
             .addLabel('start')
             .set(this.fish1, { x: 300, y: 150, scale: 1 }).addLabel('first')
             .to(this.fish1, { x: 0, y: 0, duration: 0 }).addLabel('second')
-            .to(this.fish1, { x: '-200%', y: -150, duration: 1 }).addLabel('end')
+            .to(this.fish1, { x: '-220%', y: -150, duration: 1 }).addLabel('end')
 
         this.fish2TLM = gsap.timeline({ paused: true })
             .addLabel('start')
-            .set(this.fish2, { x: '200%', y: 150, scale: this.size }).addLabel('first')
+            .set(this.fish2, { x: '220%', y: 150, scale: this.size }).addLabel('first')
             .to(this.fish2, { x: 0, y: 0, scale: this.size, duration: 1, ease: 'power1.out', delay: 0.4 }).addLabel('second')
             .to(this.fish2, { scale: 1, duration: 0.3 }).addLabel('end')
 
