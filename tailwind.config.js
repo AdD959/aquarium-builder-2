@@ -25,6 +25,9 @@ export default {
       animation: {
         'bob': 'bob 3s ease-in-out infinite'
       },
+      boxShadow: {
+        'fish-card': 'box-shadow: 0px 0px 31px 10px rgba(67,255,0,0.75)'
+      },
       gridTemplateColumns: {
         'fish': 'repeat(auto-fill, minmax(300px, 1fr))'
       },

@@ -5,7 +5,7 @@ import fishLibrary from './data/fish.json'
 </script>
 
 <template>
-  <body class="grid grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))] mt-10 gap-3 px-20 bg-black">
+  <body class="grid grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))] mt-10 gap-3 px-20 bg-black max-w-screen-2xl mx-auto">
     <FishCard v-for="fish in fishLibrary" :data="fish"/>
   </body>
 </template>
