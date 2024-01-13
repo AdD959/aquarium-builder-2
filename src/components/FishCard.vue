@@ -1,6 +1,6 @@
 <template>
     <div class="group text-white bg-black relative flex aspect-square p-6 px-8 overflow-hidden"
-        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card" :class="selected ? 'border-[4px] border-white shadow-white shadow-fish-card transition-all duration-0' : ''">
+        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card" :class="selected ? 'border border-white shadow-white shadow-fish-card transition-all duration-0' : ''">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
         <div class="flex flex-col fish1">
@@ -36,8 +36,8 @@
                     class="translate-y-0 duration-0 opacity-20 ease-linear absolute w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[640ms] group-hover:delay-[820ms]">
                 </div>
             </div>
-            <div
-                class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-80 duration-300 transition-all">
+            <div :class="danger ? 'bg-red-500 opacity-80' : 'bg-black'"
+                class="w-full h-full absolute top-0 left-0 opacity-40 group-hover:opacity-80 duration-300 transition-all">
             </div>
             <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
                 <div ref="fish3" class=" absolute right-[-110%] bottom-[20%]">
@@ -82,9 +82,13 @@
                 </div>
             </div>
             <button
-                class="before:block pb-1 leading-3 text-2xl absolute top-6 -left-6 text-white group-hover:left-6 duration-20 duration-200 transition-all" @click="selected = !selected">+</button>
+                class="before:block pb-1 leading-3 text-2xl absolute top-6 -left-6 text-white group-hover:left-6 duration-20 duration-200 transition-all" @click="selected = true; count++">+</button>
+            <button :class="count === 0 ? 'hidden' : ''"
+                class="before:block pb-1 leading-3 text-3xl absolute top-6 -left-6 text-white group-hover:left-14 duration-20 duration-200 transition-all" @click="count--">-</button>
             <a href="#"
                 class="w-8 h-8 flex items-center justify-center border border-white rounded-full absolute top-4 -right-8 text-white group-hover:right-4 duration-200 transition-all">i</a>
+            <div href="#" :class="[count === 0 ? '-top-8' : 'top-4', danger ? 'bg-white text-red-500' : 'bg-blue-500']"
+                class="w-8 h-8 flex items-center justify-center rounded-full absolute right-4 text-white group-hover:right-14 duration-200 transition-all">{{ count }}</div>
         </div>
     </div>
 </template>
@@ -106,8 +110,18 @@ export default {
             fish2: null,
             fish3: null,
             fish4: null,
-            selected: false
+            selected: false,
+            count: 0,
+            danger: false
         }
+    },
+    watch: {
+        count(newVal, oldVal) {
+            if (newVal === 0) {
+                this.danger = false
+                this.selected = false
+            }
+        },
     },
     mounted() {
         this.randomIndex = Math.floor(Math.random() * 6) + 1
