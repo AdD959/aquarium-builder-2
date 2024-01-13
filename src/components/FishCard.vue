@@ -48,12 +48,12 @@
                     <img class="w-1/2 blur-[4px] rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`"
                         :alt="data.imageFish">
                 </div>
-                <div class="w-2/3 absolute top-1/3 -translate-y-1/3 left-1/2 -translate-x-1/2" ref="fish1">
+                <div class="w-2/3 absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2" ref="fish1">
                     <div :class="`animation-delay-[-${randomDelay}ms]`" class="animate-bob">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                     </div>
                 </div>
-                <div class="w-2/3 absolute top-1/3 -translate-y-1/3 left-1/2 -translate-x-1/2 group-hover:blur-[1px]"
+                <div class="w-2/3 absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:blur-[1px]"
                     ref="fish2">
                     <div class="animate-bob" :class="`animation-delay-[-${randomDelay}ms]`">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
