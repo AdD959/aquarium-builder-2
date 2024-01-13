@@ -1,5 +1,5 @@
 <template>
-    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 duration-700 overflow-hidden"
+    <div class="group text-white bg-black relative flex min-w-[300px] aspect-square p-6 px-8 duration-700"
         @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
@@ -40,16 +40,16 @@
                 class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-60 duration-300 transition-all">
             </div>
             <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
-                <img class="w-1/3 group-hover:blur-[5px] transition-all group-hover:duration-1000 group-hover:delay-300 ease-linear rotate-[20deg] absolute right-[-33%] bottom-[-10%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
+                <img class="w-1/3 blur-[5px] rotate-[20deg] absolute right-[-33%] bottom-[10%]"
                     :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
-                <img class="w-1/2 group-hover:blur-[5px] transition-all group-hover:duration-1000 delay-400 ease-linear rotate-[20deg] absolute right-[-50%] bottom-[0%] group-hover:translate-x-[-800px] delay-0 group-hover:translate-y-[-500px] duration-0"
+                <img class="w-1/2 blur-[5px] rotate-[20deg] absolute right-[-50%] bottom-[0%]"
                     :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                 <div class="w-2/3 absolute top-1/3 -translate-y-1/3 left-1/2 -translate-x-1/2" ref="fish1">
                     <div :class="`animation-delay-[-${randomDelay}ms]`" class="animate-bob">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                     </div>
                 </div>
-                <div class="w-2/3 absolute top-1/3 -translate-y-1/3 left-1/2 -translate-x-1/2" ref="fish2">
+                <div class="w-2/3 absolute top-1/3 -translate-y-1/3 left-1/2 -translate-x-1/2 group-hover:blur-[1px]" ref="fish2">
                     <div class="animate-bob" :class="`animation-delay-[-${randomDelay}ms]`">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                     </div>

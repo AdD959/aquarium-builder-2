@@ -28,8 +28,8 @@ export default {
       },
       keyframes: {
         bob: {
-          '0%, 100%': { transform: 'translateY(20px)' },
-          '50%': { transform: 'translateY(0px)' },
+          '0%, 100%': { transform: 'translateY(-5%)' },
+          '50%': { transform: 'translateY(5%)' },
         }
       }
     },
