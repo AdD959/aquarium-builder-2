@@ -37,14 +37,14 @@
                 </div>
             </div>
             <div
-                class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-60 duration-300 transition-all">
+                class="w-full h-full absolute top-0 left-0 bg-black opacity-40 group-hover:opacity-80 duration-300 transition-all">
             </div>
             <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
-                <div ref="fish3" class=" absolute right-[-100%] bottom-[10%]">
+                <div ref="fish3" class=" absolute right-[-100%] bottom-[30%]">
                     <img class="w-1/3 blur-[4px] rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`"
                         :alt="data.imageFish">
                 </div>
-                <div ref="fish4" class="fish4 absolute right-[-100%] bottom-[40%]">
+                <div ref="fish4" class="fish4 absolute right-[-100%] bottom-[50%]">
                     <img class="w-1/2 blur-[4px] rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`"
                         :alt="data.imageFish">
                 </div>
@@ -53,7 +53,7 @@
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                     </div>
                 </div>
-                <div class="w-2/3 absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:blur-[1px]"
+                <div class="w-2/3 absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:blur-[5px]"
                     ref="fish2">
                     <div class="animate-bob" :class="`animation-delay-[-${randomDelay}ms]`">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
@@ -122,18 +122,18 @@ export default {
             .addLabel('start')
             .set(this.fish1, { x: 300, y: 150, scale: 1 }).addLabel('first')
             .to(this.fish1, { x: 0, y: 0, duration: 0 }).addLabel('second')
-            .to(this.fish1, { x: -300, y: -150, duration: 0.5 }).addLabel('end')
+            .to(this.fish1, { x: '-200%', y: -150, duration: 1 }).addLabel('end')
 
         this.fish2TLM = gsap.timeline({ paused: true })
             .addLabel('start')
-            .set(this.fish2, { x: 300, y: 150, scale: this.size }).addLabel('first')
+            .set(this.fish2, { x: '200%', y: 150, scale: this.size }).addLabel('first')
             .to(this.fish2, { x: 0, y: 0, scale: this.size, duration: 1, ease: 'power1.out', delay: 0.4 }).addLabel('second')
             .to(this.fish2, { scale: 1, duration: 0.3 }).addLabel('end')
 
         this.fish34TLM = gsap.timeline()
         this.fish34TLM = gsap.timeline({ paused: true })
-            .to(this.fish3, { x: -600, y: -200, duration: 1 })
-            .to(this.fish4, { x: -600, y: -200, duration: 1 }, 0.2)
+            .to(this.fish3, { x: '-300%', y: -350, duration: 2.5, delay: 0.1 })
+            .to(this.fish4, { x: '-300%', y: -350, duration: 2 }, 0.4)
             .to(this.fish3, { x: 0, y: 0, duration: 0 })
             .to(this.fish4, { x: 0, y: 0, duration: 0 })
 
@@ -146,7 +146,7 @@ export default {
     methods: {
         getSize() {
             if (this.data.size === 'small') {
-                return 0.33
+                return 0.5
             } else if (this.data.size === 'medium') {
                 return 0.66
             } else {
