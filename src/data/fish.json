@@ -12,11 +12,11 @@
     {
         "id": 1,
         "name": "Clown Killifish",
-        "type": "salt",
+        "type": "fresh",
         "lifeSpan": 11,
         "difficulty": 1,
         "size": "small",
-        "description": "Vibrant saltwater fish known for playful behavior, ideal for smaller aquariums.",
+        "description": "Vibrant freshwater fish known for playful behavior, ideal for smaller aquariums.",
         "imageFish": "clown-killifish.svg"
     },
     {

@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="flex flex-col justify-end relative w-full h-full">
-                <h2 class="text-5xl text-[200%] cursor-default">{{ data.name.toUpperCase() }}</h2>
+                <h2 class="text-2xl cursor-default">{{ data.name.toUpperCase() }}</h2>
                 <p
                     class="max-h-0 overflow-hidden group-hover:max-h-[96px] transition-all duration-300 mt-2 mb-3 cursor-default">
                     {{ data.description }}
@@ -79,7 +79,7 @@
                         <div :class="data.difficulty >= 5 ? 'bg-red-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full">
                         </div>
                     </div>
-                    <img class="w-3" :src="`./src/assets/${data.type}.svg`" :alt="data.type">
+                    <img :class="data.type === 'salt' ? 'bg-blue-400' : 'bg-teal-400'" class="w-5 h-5 p-1 rounded-full" :src="`./src/assets/${data.type}.svg`" :alt="data.type">
                 </div>
             </div>
             <button
