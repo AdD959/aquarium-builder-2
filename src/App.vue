@@ -61,7 +61,7 @@ export default {
   computed: {
     filteredFish() {
   return this.myTank.filter(fish => {
-    const nameMatch = fish.name.toLowerCase().includes(this.search.toLowerCase());
+    const nameMatch = fish.name.toLowerCase().replaceAll(' ', '').includes(this.search.toLowerCase().replaceAll(' ', ''));
     const typeMatch = fish.type.includes(this.type);
     const difficultyMatch = this.difficulty !== 0 ? fish.difficulty <= this.difficulty : true;
 
