@@ -1,39 +1,39 @@
 <template>
     <div class="group text-white bg-black relative flex aspect-square p-6 px-8 overflow-hidden"
-        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card" :class="selected ? 'border border-white shadow-white shadow-fish-card transition-all duration-0' : ''">
+        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card" :class="count > 0 ? 'border border-white shadow-white shadow-fish-card transition-all duration-0' : ''">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
         <div class="flex flex-col fish1">
-            <div class="absolute w-[100px] bottom-0 right-0">
+            <div class="absolute w-[100px] bottom-0 right-0 opacity-70">
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute translate-x-1 w-4 h-4 bg-white rounded-full  group-hover:translate-y-[-416px] group-hover:duration-[500ms] group-hover:delay-[500ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute translate-x-1 w-4 h-4 bg-white rounded-full  group-hover:translate-y-[-416px] group-hover:duration-[500ms] group-hover:delay-[500ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute -translate-x-3 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[510ms] group-hover:delay-[540ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute -translate-x-3 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[510ms] group-hover:delay-[540ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute -translate-x-6 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[520ms] group-hover:delay-[580ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute -translate-x-6 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[520ms] group-hover:delay-[580ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute translate-x-3 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[530ms] group-hover:delay-[620ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute translate-x-3 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[530ms] group-hover:delay-[620ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[540ms] group-hover:delay-[640ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[540ms] group-hover:delay-[640ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute translate-x-1 w-4 h-4 bg-white rounded-full  group-hover:translate-y-[-416px] group-hover:duration-[600ms] group-hover:delay-[660ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute translate-x-1 w-4 h-4 bg-white rounded-full  group-hover:translate-y-[-416px] group-hover:duration-[600ms] group-hover:delay-[660ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute -translate-x-3 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[610ms] group-hover:delay-[700ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute -translate-x-3 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[610ms] group-hover:delay-[700ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute -translate-x-6 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[620ms] group-hover:delay-[740ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute -translate-x-6 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[620ms] group-hover:delay-[740ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute translate-x-3 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[630ms] group-hover:delay-[780ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute translate-x-3 w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[630ms] group-hover:delay-[780ms]">
                 </div>
                 <div
-                    class="translate-y-0 duration-0 opacity-20 ease-linear absolute w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[640ms] group-hover:delay-[820ms]">
+                    class="translate-y-0 duration-0 ease-linear absolute w-4 h-4 bg-white rounded-full group-hover:translate-y-[-416px] group-hover:duration-[640ms] group-hover:delay-[820ms]">
                 </div>
             </div>
             <div :class="danger ? 'bg-red-500 opacity-80' : 'bg-black'"
@@ -83,9 +83,9 @@
                 </div>
             </div>
             <button
-                class="before:block pb-1 leading-3 text-2xl absolute top-6 -left-6 text-white group-hover:left-6 duration-20 duration-200 transition-all" @click="selected = true; count++">+</button>
+                class="before:block pb-1 leading-3 text-2xl absolute top-6 -left-6 text-white group-hover:left-6 duration-20 duration-200 transition-all" @click="addToTank()">+</button>
             <button :class="count === 0 ? 'hidden' : ''"
-                class="before:block pb-1 leading-3 text-3xl absolute top-6 -left-6 text-white group-hover:left-14 duration-20 duration-200 transition-all" @click="count--">-</button>
+                class="before:block pb-1 leading-3 text-3xl absolute top-6 -left-6 text-white group-hover:left-14 duration-20 duration-200 transition-all" @click="removeFromTank()">-</button>
             <a href="#"
                 class="w-8 h-8 flex items-center justify-center border border-white rounded-full absolute top-4 -right-8 text-white group-hover:right-4 duration-200 transition-all">i</a>
             <div href="#" :class="[count === 0 ? '-top-8' : 'top-4', danger ? 'bg-white text-red-500' : 'bg-blue-500']"
@@ -111,7 +111,6 @@ export default {
             fish2: null,
             fish3: null,
             fish4: null,
-            selected: false,
             count: 0,
             danger: false
         }
@@ -120,7 +119,6 @@ export default {
         count(newVal, oldVal) {
             if (newVal === 0) {
                 this.danger = false
-                this.selected = false
             }
         },
     },
@@ -128,6 +126,7 @@ export default {
         this.randomIndex = Math.floor(Math.random() * 6) + 1
         this.randomDelay = Math.floor(Math.random() * 11) * 300
         this.size = this.getSize()
+        this.count = this.data.quantity || 0
 
         this.fish1 = this.$refs.fish1 as HTMLElement;
         this.fish2 = this.$refs.fish2 as HTMLElement;
@@ -160,6 +159,14 @@ export default {
 
     },
     methods: {
+        addToTank() {
+            this.count++
+            this.$emit('add-to-tank', this.data)
+        },
+        removeFromTank() {
+            this.count--
+            this.$emit('remove-from-tank', this.data)
+        },
         getSize() {
             if (this.data.size === 'small') {
                 return 0.5
@@ -172,7 +179,6 @@ export default {
         mouseEnter() {
             if (!this.fish34TLM.isActive()) {
                 this.fish34TLM.restart().play()
-                console.log('playing')
             }
             if (!this.fish1TLM.isActive() && !this.fish2TLM.isActive()) {
                 this.fish1TLM.play('second')
