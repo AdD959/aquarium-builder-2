@@ -4,7 +4,10 @@
       <div class="opacity-20 pointer-events-none">
         <Bubbles />
       </div>
-      <label for="search" class="text-white text-xs">Size</label>
+      <div class="flex justify-between">
+        <label for="search" class="text-white text-xs">Size</label>
+        <h2 for="search" class="text-white text-2xl">FILTERS</h2>
+      </div>
       <div class="gap-2 flex w-full justify-end text-white">
         <button @click="selectSize('small')" class="bg-[#1c1c1c] px-2 py-1 border"
           :class="size.includes('small') ? 'border-white' : 'border-[#1c1c1c]'">S</button>
@@ -33,19 +36,19 @@
             <label for="search" class="text-white text-xs">Difficulty</label>
             <div class="flex gap-2 mt-1">
               <div @click="difficulty = 1; anyDifficulty = false"
-                :class="difficulty >= 1 ? 'bg-green-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full">
+                :class="difficulty >= 1 ? 'bg-green-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
               </div>
               <div @click="difficulty = 2; anyDifficulty = false"
-                :class="difficulty >= 2 ? 'bg-yellow-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full">
+                :class="difficulty >= 2 ? 'bg-yellow-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
               </div>
               <div @click="difficulty = 3; anyDifficulty = false"
-                :class="difficulty >= 3 ? 'bg-amber-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full">
+                :class="difficulty >= 3 ? 'bg-amber-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
               </div>
               <div @click="difficulty = 4; anyDifficulty = false"
-                :class="difficulty >= 4 ? 'bg-orange-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full">
+                :class="difficulty >= 4 ? 'bg-orange-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
               </div>
               <div @click="difficulty = 5; anyDifficulty = false" :class="difficulty >= 5 ? 'bg-red-600' : 'bg-gray-300'"
-                class="w-4 h-4 rounded-full">
+                class="w-4 h-4 rounded-full cursor-pointer">
               </div>
             </div>
           </div>
@@ -53,9 +56,9 @@
             <label for="search" class="text-white text-xs">Water Type</label>
             <div class="flex gap-2 items-end">
               <img @click="selectType('fresh')" :class="type.includes('fresh') ? 'bg-teal-400' : 'bg-neutral-700'"
-                class="w-5 h-5 p-1 rounded-full" :src="`./src/assets/salt.svg`" alt="saltwater">
+                class="w-5 h-5 p-1 rounded-full cursor-pointer" :src="`./src/assets/salt.svg`" alt="saltwater">
               <img @click="selectType('salt')" :class="type.includes('salt') ? 'bg-blue-400' : 'bg-neutral-700'"
-                class="w-5 h-5 p-1 rounded-full" :src="`./src/assets/fresh.svg`" alt="freshwater">
+                class="w-5 h-5 p-1 rounded-full cursor-pointer" :src="`./src/assets/fresh.svg`" alt="freshwater">
             </div>
           </div>
         </div>
