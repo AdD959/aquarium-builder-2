@@ -1,54 +1,55 @@
 <template>
-  <body
-    class="grid grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))] mt-10 gap-3 px-20 bg-black max-w-screen-2xl">
+  <body class="grid grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))] mt-10 gap-3 px-20 bg-black max-w-screen-2xl">
     <div class="bg-[#2f2e2e] p-6 px-8 flex flex-col gap-1">
       <h2 class="text-2xl text-neutral-900">FILTERS</h2>
       <div class="relative group">
         <label for="search" class="text-white text-xs">Search...</label>
-        <input name="search" autocomplete="off" class="mt-1 w-full text-base pl-2 py-1 bg-[#1c1c1c] text-white mx-auto focus:outline-none focus:outline-1 focus:outline-white" @focusout="searchLabel = false" @focus="searchLabel = true" type="text" v-model="search">
-      </div>
-      <div class="text-white">
-        <label for="search" class="text-xs">Water Type</label>
-        <div class="flex gap-2 flex-wrap mt-1">
-          <button :class="type === '' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'" class="border flex-1 bg-[#1c1c1c] px-2 py-1"
-            @click="type = ''">All</button>
-          <button :class="type === 'fresh' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'" class="border flex-1 bg-[#1c1c1c] px-2 py-1"
-            @click="type = 'fresh'">Freshwater</button>
-          <button :class="type === 'salt' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'" class="border flex-1 bg-[#1c1c1c] px-2 py-1"
-            @click="type = 'salt'">Saltwater</button>
-        </div>
+        <input name="search" autocomplete="off"
+          class="mt-1 w-full text-base pl-2 py-1 bg-[#1c1c1c] text-white mx-auto focus:outline-none focus:outline-1 focus:outline-white"
+          @focusout="searchLabel = false" @focus="searchLabel = true" type="text" v-model="search">
       </div>
       <div class="text-white">
         <label for="search" class="text-white text-xs">Size</label>
         <div class="flex gap-2 flex-wrap mt-1">
-          <button :class="size === '' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'" class="border flex-1 bg-[#1c1c1c] px-2 py-1"
-            @click="size = ''">All</button>
-          <button :class="size === 'small' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'" class="border flex-1 bg-[#1c1c1c] px-2 py-1"
-            @click="size = 'small'">Small</button>
-          <button :class="size === 'medium' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'" class="border flex-1 bg-[#1c1c1c] px-2 py-1"
-            @click="size = 'medium'">Medium</button>
-          <button :class="size === 'large' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'" class="border flex-1 bg-[#1c1c1c] px-2 py-1"
-            @click="size = 'large'">Large</button>
+          <button :class="size === '' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'"
+            class="border w-full bg-[#1c1c1c] px-2 py-1" @click="size = ''">All</button>
+          <button :class="size === 'small' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'"
+            class="border flex-1 bg-[#1c1c1c] px-2 py-1" @click="size = 'small'">Small</button>
+          <button :class="size === 'medium' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'"
+            class="border flex-1 bg-[#1c1c1c] px-2 py-1" @click="size = 'medium'">Medium</button>
+          <button :class="size === 'large' ? 'border-white' : 'border-[#1c1c1c] text-neutral-700'"
+            class="border flex-1 bg-[#1c1c1c] px-2 py-1" @click="size = 'large'">Large</button>
         </div>
       </div>
-      <div class="text-white">
-        <label for="search" class="text-white text-xs">Difficulty</label>
-        <div class="flex gap-2 mt-1">
-          <div @click="difficulty = 1; anyDifficulty = false" :class="difficulty >= 1 ? 'bg-green-600' : 'bg-gray-300'"
-            class="w-4 h-4 rounded-full">
+      <div class="flex justify-between flex-1 items-end">
+        <div class="text-white">
+          <label for="search" class="text-white text-xs">Difficulty</label>
+          <div class="flex gap-2 mt-1">
+            <div @click="difficulty = 1; anyDifficulty = false" :class="difficulty >= 1 ? 'bg-green-600' : 'bg-gray-300'"
+              class="w-4 h-4 rounded-full">
+            </div>
+            <div @click="difficulty = 2; anyDifficulty = false" :class="difficulty >= 2 ? 'bg-yellow-600' : 'bg-gray-300'"
+              class="w-4 h-4 rounded-full">
+            </div>
+            <div @click="difficulty = 3; anyDifficulty = false" :class="difficulty >= 3 ? 'bg-amber-600' : 'bg-gray-300'"
+              class="w-4 h-4 rounded-full">
+            </div>
+            <div @click="difficulty = 4; anyDifficulty = false" :class="difficulty >= 4 ? 'bg-orange-600' : 'bg-gray-300'"
+              class="w-4 h-4 rounded-full">
+            </div>
+            <div @click="difficulty = 5; anyDifficulty = false" :class="difficulty >= 5 ? 'bg-red-600' : 'bg-gray-300'"
+              class="w-4 h-4 rounded-full">
+            </div>
           </div>
-          <div @click="difficulty = 2; anyDifficulty = false" :class="difficulty >= 2 ? 'bg-yellow-600' : 'bg-gray-300'"
-            class="w-4 h-4 rounded-full">
-          </div>
-          <div @click="difficulty = 3; anyDifficulty = false" :class="difficulty >= 3 ? 'bg-amber-600' : 'bg-gray-300'"
-            class="w-4 h-4 rounded-full">
-          </div>
-          <div @click="difficulty = 4; anyDifficulty = false" :class="difficulty >= 4 ? 'bg-orange-600' : 'bg-gray-300'"
-            class="w-4 h-4 rounded-full">
-          </div>
-          <div @click="difficulty = 5; anyDifficulty = false" :class="difficulty >= 5 ? 'bg-red-600' : 'bg-gray-300'"
-            class="w-4 h-4 rounded-full">
         </div>
+        <div>
+          <label for="search" class="text-white text-xs">Water Type</label>
+          <div class="flex gap-2 items-end">
+            <img @click="selectType('fresh')" :class="type.includes('fresh') ? 'bg-teal-400' : 'bg-neutral-700'"
+              class="w-5 h-5 p-1 rounded-full" :src="`./src/assets/salt.svg`" alt="saltwater">
+            <img @click="selectType('salt')" :class="type.includes('salt') ? 'bg-blue-400' : 'bg-neutral-700'"
+              class="w-5 h-5 p-1 rounded-full" :src="`./src/assets/fresh.svg`" alt="freshwater">
+          </div>
         </div>
       </div>
     </div>
@@ -70,7 +71,7 @@ export default {
       fishLibrary: fishLibrary,
       myTank: [],
       search: '',
-      type: '',
+      type: ['fresh', 'salt'],
       difficulty: 5,
       size: '',
       searchLabel: false
@@ -92,7 +93,7 @@ export default {
     filteredFish() {
       return this.myTank.filter(fish => {
         const nameMatch = fish.name.toLowerCase().replaceAll(' ', '').includes(this.search.toLowerCase().replaceAll(' ', ''));
-        const typeMatch = fish.type.includes(this.type);
+        const typeMatch = this.type.some(type => fish.type.includes(type));
         const difficultyMatch = this.difficulty !== 0 ? fish.difficulty <= this.difficulty : true;
         const sizeMatch = fish.size.includes(this.size);
 
@@ -104,6 +105,19 @@ export default {
   methods: {
     getFish() {
       return this.fishLibrary;
+    },
+    selectType(selectedType) {
+      const index = this.type.indexOf(selectedType);
+
+      if (index !== -1) {
+        if (this.type.length > 1) {
+          this.type.splice(index, 1);
+        } else {
+          this.type[0] = selectedType === 'salt' ? 'fresh' : 'salt';
+        }
+      } else {
+        this.type.push(selectedType);
+      }
     },
     tankAdd(newFish) {
       this.myTank.find(fish => fish.id === newFish.id).quantity++;
