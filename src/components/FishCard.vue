@@ -1,5 +1,5 @@
 <template>
-    <div class="group text-white bg-black relative flex aspect-square p-6 px-8 overflow-hidden border"
+    <div class="group text-white bg-black relative flex aspect-square p-6 px-8 overflow-hidden border self-end"
         @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card"
         :class="count > 0 ? 'border-white shadow-white shadow-fish-card transition-all duration-0' : 'border-black'">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
