@@ -7,7 +7,7 @@
         <div class="flex flex-col fish1">
             <Bubbles />
             <div :class="danger ? 'bg-red-500 opacity-80' : 'bg-black'"
-                class="w-full h-full absolute top-0 left-0 opacity-40 group-hover:opacity-80 duration-300 transition-all">
+                class="w-full h-full absolute top-0 left-0 opacity-60 group-hover:opacity-90 duration-300 transition-all">
             </div>
             <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
                 <div ref="fish3" class=" absolute right-[-110%] bottom-[20%]">
