@@ -14,7 +14,9 @@
                                 <h3 class="text-base text-white">{{ fish.name }}</h3>
                             </div>
                             <div class="relative h-full flex gap-1">
-                                <div class="w-12 h-full bg-white"></div>
+                                <div class="w-12 h-full bg-white flex items-center justify-center">
+                                    {{  fish.quantity }}
+                                </div>
                                 <div class="w-12 h-full bg-white"></div>
                                 <div class="w-12 h-full bg-white"></div>
                             </div>
