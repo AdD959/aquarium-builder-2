@@ -62,12 +62,12 @@
       </div>
       <FishCard v-for="fish in filteredFish" :key="fish.id" :data="fish" @add-to-tank="tankAdd(fish)"
         @remove-from-tank="tankRemove(fish)" />
-        <FishCard :data="fishLibrary[15]"/>
-      <div class="bg-[#2f2e2e] text-white p-6 px-8 flex flex-col gap-1 relative aspect-square group overflow-auto">
+        <!-- <FishCard :data="fishLibrary[15]"/> -->
+      <!-- <div class="bg-[#2f2e2e] text-white p-6 px-8 flex flex-col gap-1 relative aspect-square group overflow-auto">
         <h2 class="text-2xl font-bold mb-4">Can't find the fish you're looking for?</h2>
         <p>Try our AI-assisted search...</p>
         <p class="text-[#1c1c1c] font-bold">(Coming soon...)</p>
-      </div>
+      </div> -->
     </main>
     <MyTank :tank="getTank()" @add-fish="tankAdd" @remove-fish="tankRemove" />
   </body>
