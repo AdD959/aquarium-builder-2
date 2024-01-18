@@ -1,13 +1,13 @@
 <template>
-    <div class="group text-white bg-black relative flex aspect-square p-6 px-8 border self-end overflow-hidden" @mouseenter="mouseEnter()"
-        @mouseleave="mouseLeave()" ref="card"
+    <div class="group text-white bg-black relative flex aspect-square p-6 px-8 border self-end overflow-hidden"
+        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card"
         :class="count > 0 ? 'border-white shadow-white shadow-fish-card transition-all duration-0' : 'border-black'">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
-            class="absolute top-0 left-0 blur-sm" alt="">
+            class="absolute top-0 left-0 group-hover:blur-sm blur-[2px] opacity-80" alt="">
         <div class="flex flex-col fish1">
             <Bubbles />
             <div :class="danger ? 'bg-red-500 opacity-80' : 'bg-black'"
-                class="w-full h-full absolute top-0 left-0 opacity-60 group-hover:opacity-90 duration-300 transition-all">
+                class="w-full h-full absolute top-0 left-0 opacity-30 group-hover:opacity-40 duration-300 transition-all">
             </div>
             <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
                 <div ref="fish3" class=" absolute right-[-110%] bottom-[20%]">
@@ -19,16 +19,19 @@
                         :alt="data.imageFish">
                 </div>
                 <div :class="data.customWidth ? data.customWidth : 'w-2/3'"
-                    class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2" ref="fish1">
+                    class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 blur-[1px]" ref="fish1">
                     <div :class="`animation-delay-[-${randomDelay}ms]`" class="animate-bob">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                     </div>
                 </div>
                 <div :class="data.customWidth ? data.customWidth : 'w-2/3'"
-                    class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:blur-[5px]" ref="fish2">
+                    class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:blur-[4px]" ref="fish2">
                     <div class="animate-bob" :class="`animation-delay-[-${randomDelay}ms]`">
                         <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish">
                     </div>
+                </div>
+                <div :class="danger ? 'bg-red-500 opacity-80' : 'bg-black'"
+                    class="w-full h-full absolute top-0 left-0 opacity-10 group-hover:opacity-40 duration-300 transition-all">
                 </div>
             </div>
             <div class="flex flex-col justify-end relative w-full h-full">
