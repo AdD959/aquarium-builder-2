@@ -1,6 +1,6 @@
 <template>
-    <div class="group text-white bg-black relative flex aspect-square p-6 px-8 overflow-hidden border self-end"
-        @mouseenter="mouseEnter()" @mouseleave="mouseLeave()" ref="card"
+    <div class="group text-white bg-black relative flex aspect-square p-6 px-8 border self-end overflow-hidden" @mouseenter="mouseEnter()"
+        @mouseleave="mouseLeave()" ref="card"
         :class="count > 0 ? 'border-white shadow-white shadow-fish-card transition-all duration-0' : 'border-black'">
         <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
             class="absolute top-0 left-0 blur-sm" alt="">
@@ -65,8 +65,7 @@
             <div :class="[count === 0 ? '-top-8' : 'top-4', danger ? 'bg-white text-red-500' : 'bg-blue-500 text-white']"
                 class="w-8 h-8 flex items-center justify-center rounded-full absolute right-4  group-hover:right-14 duration-200 transition-all">
                 <div class="w-full h-full rounded-full absolute top-0 left-0 bg-current" ref="ping"></div>
-                <div href="#"
-                    class="w-full h-full rounded-full flex items-center justify-center">
+                <div href="#" class="w-full h-full rounded-full flex items-center justify-center">
                     {{ count }}
                 </div>
             </div>
@@ -113,35 +112,39 @@ export default {
         this.randomDelay = Math.floor(Math.random() * 11) * 300
         this.size = this.getSize()
         this.count = this.data.quantity || 0
+        const animation_duration = 1
 
         this.fish1 = this.$refs.fish1 as HTMLElement;
         this.fish2 = this.$refs.fish2 as HTMLElement;
         this.fish3 = this.$refs.fish3 as HTMLElement;
         this.fish4 = this.$refs.fish4 as HTMLElement;
 
+
+        let posoffish1 = null
         this.fish1TLM = gsap.timeline({ paused: true })
             .addLabel('start')
-            .set(this.fish1, { x: 300, y: 150, scale: 1 }).addLabel('first')
-            .to(this.fish1, { x: 0, y: 0, duration: 0 }).addLabel('second')
-            .to(this.fish1, { x: '-220%', y: -150, duration: 1 }).addLabel('end')
+            // .set(this.fish1, { x: 300, y: 150, scale: 1 }).addLabel('first')
+            // .to(this.fish1, { x: 0, y: 0, duration: 0 }).addLabel('second')
+            // .to(this.fish1, { x: '-220%', y: -150, duration: 1 }).addLabel('end')
+            .fromTo(this.fish1, { onBegin: () => { posoffish1 = gsap.getProperty(this.fish1, 'y') }, y: posoffish1 }, { x: '-200%', y: -150, duration: animation_duration, }).addLabel('end')
 
+        let posoffish2 = null
         this.fish2TLM = gsap.timeline({ paused: true })
             .addLabel('start')
-            .set(this.fish2, { x: '220%', y: 150, scale: this.size }).addLabel('first')
-            .to(this.fish2, { x: 0, y: 0, scale: this.size, duration: 1, ease: 'power1.out', delay: 0.4 }).addLabel('second')
-            .to(this.fish2, { scale: 1, duration: 0.3 }).addLabel('end')
+            // .set(this.fish2, { x: '220%', y: 150, scale: this.size }).addLabel('first')
+            // .to(this.fish2, { x: 0, y: 0, scale: this.size, duration: 1, ease: 'power1.out', delay: 0.4 }).addLabel('second')
+            // .to(this.fish2, { scale: 1, duration: 0.3 }).addLabel('end')
+            .fromTo(this.fish2, { x: '200%', y: 150, onBegin: () => { posoffish2 = gsap.getProperty(this.fish1, 'y') } }, { x: 0, y: posoffish2, duration: animation_duration, delay: 0.5 }).addLabel('end')
 
         this.fish34TLM = gsap.timeline()
         this.fish34TLM = gsap.timeline({ paused: true })
-            .to(this.fish3, { x: '-300%', y: -350, duration: 2.5, delay: 0.1 })
-            .to(this.fish4, { x: '-300%', y: -350, duration: 2 }, 0.4)
-            .to(this.fish3, { x: 0, y: 0, duration: 0 })
-            .to(this.fish4, { x: 0, y: 0, duration: 0 })
+            .to(this.fish3, { x: '-200%', y: '-400%', duration: animation_duration * 1.2, delay: 0.1 })
+            .to(this.fish4, { x: '-225%', y: '-275%', duration: animation_duration }, 0.2)
 
 
-        this.fish2TLM.play('first').pause()
-        this.fish1TLM.play('first').pause()
-        this.fish34TLM.play().pause()
+        // this.fish2TLM.play('first').pause()
+        // this.fish1TLM.play('first').pause()
+        // this.fish34TLM.play().pause()
 
     },
     methods: {
@@ -163,20 +166,24 @@ export default {
             }
         },
         mouseEnter() {
-            if (!this.fish34TLM.isActive()) {
+            // if (!this.fish34TLM.isActive()) {
+            //     this.fish34TLM.restart().play()
+            // }
+            if (!this.fish1TLM.isActive() &&
+                !this.fish2TLM.isActive() &&
+                !this.fish34TLM.isActive()) {
+                this.fish1TLM.restart().play()
+                this.fish2TLM.restart().play()
                 this.fish34TLM.restart().play()
             }
-            if (!this.fish1TLM.isActive() && !this.fish2TLM.isActive()) {
-                this.fish1TLM.play('second')
-            }
-            if (!this.fish2TLM.isActive()) {
-                this.fish2TLM.play('first').tweenTo(this.fish2TLM.nextLabel())
-            }
+            // if (!this.fish2TLM.isActive()) {
+            //     this.fish2TLM.play('first').tweenTo(this.fish2TLM.nextLabel())
+            // }
         },
         mouseLeave() {
-            if (!this.fish2TLM.isActive()) {
-                this.fish2TLM.play('second')
-            }
+            // if (!this.fish2TLM.isActive()) {
+            //     this.fish2TLM.play('second')
+            // }
         }
     }
 }

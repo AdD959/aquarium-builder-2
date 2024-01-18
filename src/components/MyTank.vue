@@ -3,7 +3,7 @@
         <div class="w-full flex justify-end pb-4 absolute top-0 right-0">
             <button class="text-3xl text-white px-4" @click="open = !open">X</button>
         </div>
-        <div class="flex ml-3 min-w-min fixed right-10 top-10" :class="open ? 'right-0' : '-right-full'">
+        <div class="flex ml-3 min-w-min fixed top-10" :class="open ? 'right-0' : '-right-full'">
             <div class="transition-all duration-250 w-[600px]">
                 <img class="w-full" src="../assets/tank.svg" alt="">
                 <div class="bg-[#DBF5E5] p-4 flex flex-col gap-2">
