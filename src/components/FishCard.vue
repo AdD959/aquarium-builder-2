@@ -1,6 +1,6 @@
 <template>
     <div class="group text-white flex aspect-square border self-end overflow-hidden" @mouseenter="mouseEnter()" ref="card"
-        :class="count > 0 ? 'border-white shadow-white shadow-fish-card transition-all duration-0' : 'border-black'">
+        :class="data.quantity > 0 ? 'border-white shadow-white shadow-fish-card transition-all duration-0' : 'border-black'">
         <div class="flex flex-col relative p-6 px-8">
             <img class="absolute top-0 left-0 w-full h-full blur-sm group-hover:blur-md"
                 :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`" alt="background image" />
@@ -57,16 +57,16 @@
             <button
                 class="before:block pb-1 leading-3 text-2xl absolute top-6 -left-6 text-white group-hover:left-6 duration-20 duration-200 transition-all"
                 @click="addToTank()">+</button>
-            <button :class="count === 0 ? 'hidden' : ''"
+            <button :class="data.quantity === 0 ? 'hidden' : ''"
                 class="before:block pb-1 leading-3 text-3xl absolute top-6 -left-6 text-white group-hover:left-14 duration-20 duration-200 transition-all"
                 @click="removeFromTank()">-</button>
             <a href="#"
                 class="w-8 h-8 flex items-center justify-center border border-white rounded-full absolute top-4 -right-8 text-white group-hover:right-4 duration-200 transition-all">i</a>
-            <div :class="[count === 0 ? '-top-8' : 'top-4', danger ? 'bg-white text-red-500' : 'bg-blue-500 text-white']"
+            <div :class="[data.quantity === 0 ? '-top-8' : 'top-4', danger ? 'bg-white text-red-500' : 'bg-blue-500 text-white']"
                 class="w-8 h-8 flex items-center justify-center rounded-full absolute right-4  group-hover:right-14 duration-200 transition-all">
-                <div class="w-full h-full rounded-full absolute top-0 left-0 bg-current" ref="ping"></div>
+                <div class="w-full h-full rounded-full absolute top-0 left-0" ref="ping"></div>
                 <div href="#" class="w-full h-full rounded-full flex items-center justify-center">
-                    {{ count }}
+                    {{ data.quantity }}
                 </div>
             </div>
         </div>
@@ -95,7 +95,6 @@ export default {
             fish2: null,
             fish3: null,
             fish4: null,
-            count: 0,
             danger: false,
             fish1Img: null,
             fish2Img: null,
@@ -104,7 +103,7 @@ export default {
         }
     },
     watch: {
-        count(newVal, oldVal) {
+        quantity(newVal, oldVal) {
             if (newVal === 0) {
                 this.danger = false
             } else if (newVal >= 1) {
@@ -116,7 +115,6 @@ export default {
         this.randomIndex = Math.floor(Math.random() * 6) + 1
         this.randomDelay = Math.floor(Math.random() * 11) * 300
         this.size = this.getSize()
-        this.count = this.data.quantity || 0
         const animation_duration = 1
 
         this.fish1 = this.$refs.fish1 as HTMLElement;
@@ -133,30 +131,15 @@ export default {
         this.fish34TLM = gsap.timeline({ paused: true })
             .fromTo(this.fish3, { x: 0, y: 0 }, { x: '-200%', y: '-100%', duration: animation_duration * 2 }, animation_duration / 2)
             .fromTo(this.fish4, { x: 0, y: 0 }, { x: '-200%', y: '-100%', duration: animation_duration * 2 }, 0)
-
-        // let posoffish2 = null
-        // this.fish2TLM = gsap.timeline({ paused: true })
-        //     .addLabel('start')
-        //     .fromTo(this.fish2, { x: `${this.$refs.card.offsetWidth}px`, y: 150, onBegin: () => { posoffish2 = gsap.getProperty(this.fish2, 'y') } }, { x: 0, y: posoffish2, duration: animation_duration, delay: 0.5 }).addLabel('end')
-
-        // this.fish34TLM = gsap.timeline({ paused: true })
-        //     .fromTo(this.fish3, { x: `${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish3Img)}px`, y: `${this.$refs.card.offsetWidth * 0.5}px` },
-        //         { x: () => `-=${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish3Img)}px`, y: `-=${this.$refs.card.offsetWidth * 0.5}px`, duration: animation_duration * 0.8, delay: 0.3, ease: 'linear' })
-        //     .fromTo(this.fish4, { x: `${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish4Img)}px`, y: `${this.$refs.card.offsetWidth * 0.2}px` },
-        //         { x: () => `-=${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish4Img)}px`, y: `-=${this.$refs.card.offsetWidth * 0.5}px`, duration: animation_duration * 0.6, ease: 'linear' }, 0.2);
-
-
     },
     methods: {
         getWidth(element) {
             return element.offsetWidth + 50
         },
         addToTank() {
-            this.count++
             this.$emit('add-to-tank', this.data)
         },
         removeFromTank() {
-            this.count--
             this.$emit('remove-from-tank', this.data)
         },
         getSize() {
@@ -174,11 +157,6 @@ export default {
                 this.fish2TLM.restart().play();
                 this.fish34TLM.restart().play();
             }
-            // if (!this.fish1TLM.isActive() && !this.fish2TLM.isActive() && !this.fish34TLM.isActive()) {
-            //     this.fish1TLM.restart().play();
-            //     this.fish2TLM.restart().play();
-            //     this.fish34TLM.restart().play();
-            // }
         },
     }
 }
