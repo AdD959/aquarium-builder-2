@@ -75,13 +75,16 @@
             <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M1087.17 807.579C1091.59 811.36 1097.23 815.222 1100.65 814.539C1104.91 813.687 1126.84 805.872 1140.92 800.746C1134.55 799.7 1121.88 798.832 1115.49 798.49C1109.56 804.985 1098.47 806.113 1091.99 806.772C1089.55 807.02 1087.77 807.201 1087.17 807.579Z"
                 fill="url(#paint15_linear_40_699)" />
+            <template v-for="specimen in tank">
+                <image class="fish" v-for="fish in specimen.quantity" :href="`./src/assets/fish/${specimen.imageFish}`"
+                    :x="randomPositionX()" :y="randomPositionY()" :width="fishSize" :height="fishSize" />
+            </template>
             <rect x="181.002" y="288" width="1155" height="580" fill="#00C2FF" fill-opacity="0.3" />
             <path d="M182.123 437.229L1003.57 363.681L182.123 472.637L182.123 437.229Z" fill="white" fill-opacity="0.2" />
             <path d="M181.67 601.418L880.324 538.865L182.123 635.702L181.67 601.418Z" fill="white" fill-opacity="0.2" />
             <path d="M182.002 288H1336V413.433L182.002 584.021V288Z" fill="white" fill-opacity="0.16" />
+
             <rect x="170" y="288" width="1177" height="583" fill="url(#paint16_radial_40_699)" />
-            <image v-for="fish in tank" :href="`./src/assets/fish/${fish.imageFish}`" :x="randomPositionX()"
-                :y="randomPositionY()" :width="fishSize" :height="fishSize" />
             <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M631.097 282.03L608.225 227.259L959.622 227.259L980.005 282.03L631.097 282.03Z" fill="#2E576C"
                 fill-opacity="0.6" />
@@ -182,27 +185,41 @@
 </template>
 
 <script lang="ts">
+import { gsap } from 'gsap';
 export default {
     props: ['tank'],
     data() {
         return {
             fishSize: 150,
-            tankWidth: 1347,
+            tankWidth: 1330,
             tankHeight: 871,
-            tankXPosition: 170,
+            tankXPosition: 180,
             tankYPosition: 288,
         }
     },
+    mounted() {
+        this.$nextTick(() => {
+            gsap.utils.toArray('.fish').forEach((fishElement) => {
+                gsap.set(fishElement, { scaleX: this.randomDirection(), transformOrigin: 'center center' })
+                gsap.to(fishElement, { x: 'random(0, 200)', y: 'random(0, 100)', duration: 'random(1,5)', repeat: -1, repeatRefresh: true })
+
+            });
+        });
+    },
     methods: {
         randomPositionY() {
-            const min = this.tankYPosition + this.fishSize;
+            const min = this.tankYPosition
             const max = this.tankHeight - this.fishSize;
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
         randomPositionX() {
-            const min = this.tankXPosition + this.fishSize;
+            const min = this.tankXPosition
             const max = this.tankWidth - this.fishSize;
             return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+        randomDirection() {
+            const randomValue = Math.round(Math.random());
+            return randomValue === 0 ? -1 : 1;
         },
     }
 }
