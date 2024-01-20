@@ -1,40 +1,35 @@
 <template>
-    <div class="group text-white bg-black relative flex aspect-square p-6 px-8 border self-end overflow-hidden" @mouseenter="mouseEnter()"
-        ref="card"
+    <div class="group text-white flex aspect-square border self-end overflow-hidden" @mouseenter="mouseEnter()" ref="card"
         :class="count > 0 ? 'border-white shadow-white shadow-fish-card transition-all duration-0' : 'border-black'">
-        <img :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`"
-            class="absolute top-0 left-0 group-hover:blur-sm blur-[2px] opacity-80" alt="">
-        <div class="flex flex-col fish1">
+        <div class="flex flex-col relative p-6 px-8">
+            <img class="absolute top-0 left-0 w-full h-full blur-sm group-hover:blur-md"
+                :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`" alt="background image" />
             <Bubbles />
-            <div :class="danger ? 'bg-red-500 opacity-80' : 'bg-black'"
-                class="w-full h-full absolute top-0 left-0 opacity-30 group-hover:opacity-40 duration-300 transition-all">
+            <div class="w-full h-full absolute top-1/2 -right-full" ref="fish4">
+                <img class="w-1/4 absolute top-1/3 left-1/2 -translate-x-1/2 rotate-[20deg] blur-sm"
+                    :src="`./src/assets/fish/${data.imageFish}`" alt="">
             </div>
-            <div :class="`animation-delay-[-${randomDelay}ms]`" class="absolute w-full h-full top-0 left-0">
-                <div ref="fish3" class=" absolute">
-                    <img class="w-1/3 blur-[4px] rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`"
-                        :alt="data.imageFish" ref="fish3Img">
+            <div class="w-full h-full absolute top-1/4 -right-full" ref="fish3">
+                <img class="w-1/3 absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg] blur-sm"
+                    :src="`./src/assets/fish/${data.imageFish}`" alt="">
+            </div>
+            <div class="w-full h-full absolute top-0 left-0" ref="fish2">
+                <div class="animate-bob h-full" :class="`animation-delay-[-${randomDelay}ms]`">
+                    <img :class="data.customWidth ? data.customWidth : 'w-3/5'" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg]"
+                        :src="`./src/assets/fish/${data.imageFish}`" alt="">
                 </div>
-                <div ref="fish4" class="absolute">
-                    <img class="w-1/2 blur-[4px] rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`"
-                        :alt="data.imageFish" ref="fish4Img">
+            </div>
+            <div
+                class="w-full h-full bg-black absolute top-0 left-0 group-hover:opacity-50 opacity-20 transition-all duration-600">
+            </div>
+            <div class="w-full h-full absolute top-0 left-0" ref="fish1">
+                <div class="animate-bob h-full" :class="`animation-delay-[-${randomDelay}ms]`">
+                    <img :class="data.customWidth ? data.customWidth : 'w-3/5'" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg] group-hover:blur-[2px]"
+                        :src="`./src/assets/fish/${data.imageFish}`" alt="">
                 </div>
-                <div :class="data.customWidth ? data.customWidth : 'w-2/3'"
-                    class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2" ref="fish1">
-                    <div :class="`animation-delay-[-${randomDelay}ms]`" class="animate-bob">
-                        <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish"
-                            ref="fish1Img">
-                    </div>
-                </div>
-                <div :class="data.customWidth ? data.customWidth : 'w-2/3'"
-                    class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 group-hover:blur-[4px]" ref="fish2">
-                    <div class="animate-bob" :class="`animation-delay-[-${randomDelay}ms]`">
-                        <img class="rotate-[20deg]" :src="`./src/assets/fish/${data.imageFish}`" :alt="data.imageFish"
-                            ref="fish2Img">
-                    </div>
-                </div>
-                <div :class="danger ? 'bg-red-500 opacity-80' : 'bg-black'"
-                    class="w-full h-full absolute top-0 left-0 opacity-10 group-hover:opacity-40 duration-300 transition-all">
-                </div>
+            </div>
+            <div
+                class="w-full h-full bg-black absolute top-0 left-0 opacity-10 group-hover:opacity-50 transition-all duration-600">
             </div>
             <div class="flex flex-col justify-end relative w-full h-full">
                 <h2 class="text-2xl cursor-default">{{ data.name.toUpperCase() }}</h2>
@@ -75,6 +70,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -130,19 +126,24 @@ export default {
 
         let posoffish1 = null
         this.fish1TLM = gsap.timeline({ paused: true })
-            .addLabel('start')
-            .fromTo(this.fish1, { onBegin: () => { posoffish1 = gsap.getProperty(this.fish1, 'y') }, y: posoffish1 }, { x: `-${this.$refs.card.offsetWidth}px`, y: -150, duration: animation_duration, }).addLabel('end')
-
+            .fromTo(this.fish1, { x: '100%', y: '50%', onBegin: () => { posoffish1 = gsap.getProperty(this.fish1, 'y') }}, { x: 0, y: 0, duration: animation_duration, delay: 0.5 })
         let posoffish2 = null
         this.fish2TLM = gsap.timeline({ paused: true })
-            .addLabel('start')
-            .fromTo(this.fish2, { x: `${this.$refs.card.offsetWidth}px`, y: 150, onBegin: () => { posoffish2 = gsap.getProperty(this.fish2, 'y') } }, { x: 0, y: posoffish2, duration: animation_duration, delay: 0.5 }).addLabel('end')
-
+            .fromTo(this.fish2, { x: 0, y: posoffish2, onBegin: () => { posoffish2 = gsap.getProperty(this.fish2, 'y') } }, { x: '-100%', y: '-50%', duration: animation_duration })
         this.fish34TLM = gsap.timeline({ paused: true })
-            .fromTo(this.fish3, { x: `${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish3Img)}px`, y: `${this.$refs.card.offsetWidth * 0.5}px` },
-                { x: () => `-=${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish3Img)}px`, y: `-=${this.$refs.card.offsetWidth * 0.5}px`, duration: animation_duration * 0.8, delay: 0.3, ease: 'linear' })
-            .fromTo(this.fish4, { x: `${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish4Img)}px`, y: `${this.$refs.card.offsetWidth * 0.2}px` },
-                { x: () => `-=${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish4Img)}px`, y: `-=${this.$refs.card.offsetWidth * 0.5}px`, duration: animation_duration * 0.6, ease: 'linear' }, 0.2);
+            .fromTo(this.fish3, { x: 0, y: 0 }, { x: '-200%', y: '-100%', duration: animation_duration * 2 }, animation_duration / 2)
+            .fromTo(this.fish4, { x: 0, y: 0 }, { x: '-200%', y: '-100%', duration: animation_duration * 2 }, 0)
+
+        // let posoffish2 = null
+        // this.fish2TLM = gsap.timeline({ paused: true })
+        //     .addLabel('start')
+        //     .fromTo(this.fish2, { x: `${this.$refs.card.offsetWidth}px`, y: 150, onBegin: () => { posoffish2 = gsap.getProperty(this.fish2, 'y') } }, { x: 0, y: posoffish2, duration: animation_duration, delay: 0.5 }).addLabel('end')
+
+        // this.fish34TLM = gsap.timeline({ paused: true })
+        //     .fromTo(this.fish3, { x: `${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish3Img)}px`, y: `${this.$refs.card.offsetWidth * 0.5}px` },
+        //         { x: () => `-=${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish3Img)}px`, y: `-=${this.$refs.card.offsetWidth * 0.5}px`, duration: animation_duration * 0.8, delay: 0.3, ease: 'linear' })
+        //     .fromTo(this.fish4, { x: `${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish4Img)}px`, y: `${this.$refs.card.offsetWidth * 0.2}px` },
+        //         { x: () => `-=${this.$refs.card.offsetWidth + this.getWidth(this.$refs.fish4Img)}px`, y: `-=${this.$refs.card.offsetWidth * 0.5}px`, duration: animation_duration * 0.6, ease: 'linear' }, 0.2);
 
 
     },
@@ -168,12 +169,18 @@ export default {
             }
         },
         mouseEnter() {
-            if (!this.fish1TLM.isActive() && !this.fish2TLM.isActive() && !this.fish34TLM.isActive()) {
+            if (!this.fish1TLM.isActive() && !this.fish2TLM.isActive()) {
                 this.fish1TLM.restart().play();
                 this.fish2TLM.restart().play();
                 this.fish34TLM.restart().play();
             }
+            // if (!this.fish1TLM.isActive() && !this.fish2TLM.isActive() && !this.fish34TLM.isActive()) {
+            //     this.fish1TLM.restart().play();
+            //     this.fish2TLM.restart().play();
+            //     this.fish34TLM.restart().play();
+            // }
         },
     }
 }
 </script>
+
