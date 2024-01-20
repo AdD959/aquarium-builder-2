@@ -19,11 +19,14 @@ export default {
     'animation-delay-[-2700ms]',
     'w-20',
     'w-40',
+    'group-hover:w-10/12',
+    'group-hover:w-1/3',
+    'group-hover:w-2/3',
   ],
   theme: {
     extend: {
       animation: {
-        'bob': 'bob 3s ease-in-out infinite'
+        'bob': 'bob 5s ease-in-out infinite'
       },
       boxShadow: {
         'fish-card': 'box-shadow: 0px 0px 31px 10px rgba(67,255,0,0.75)'

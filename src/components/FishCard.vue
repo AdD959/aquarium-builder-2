@@ -24,7 +24,7 @@
             </div>
             <div class="w-full h-full absolute top-0 left-0" ref="fish1">
                 <div class="animate-bob h-full" :class="`animation-delay-[-${randomDelay}ms]`">
-                    <img :class="data.customWidth ? data.customWidth : 'w-3/5'" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg] group-hover:blur-[2px]"
+                    <img :class="data.customWidth ? data.customWidth : 'w-3/5', getSize()" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg] group-hover:blur-[2px] transition-all duration-300"
                         :src="`./src/assets/fish/${data.imageFish}`" alt="">
                 </div>
             </div>
@@ -161,11 +161,11 @@ export default {
         },
         getSize() {
             if (this.data.size === 'small') {
-                return 0.5
+                return 'group-hover:w-1/3'
             } else if (this.data.size === 'medium') {
-                return 0.66
+                return 'group-hover:w-2/3'
             } else {
-                return 1
+                return 'group-hover:w-10/12'
             }
         },
         mouseEnter() {
