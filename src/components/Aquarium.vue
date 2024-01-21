@@ -307,7 +307,7 @@ export default {
             return randomValue === 0 ? -1 : 1;
         },
         sizeChange(size: number) {
-            // this.fishSize = this.fishSize * size
+            this.fishSize = this.fishSize * size
             gsap.to('.fish', { scale: size, duration: 0, transformOrigin: '100% 100%' })
             gsap.to(['#rock1', '#rock2', '#seaweed'], { scale: size, transformOrigin: 'bottom center' })
             gsap.to('#bg', { scale: size * 2, transformOrigin: 'bottom center' })
