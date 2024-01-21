@@ -77,7 +77,7 @@
                 fill="url(#paint15_linear_40_699)" />
             <template v-for="specimen in tank">
                 <image class="fish" v-for="fish in specimen.quantity" :href="`./src/assets/fish/${specimen.imageFish}`"
-                    :x="randomPositionX()" :y="randomPositionY()" :width="fishSize" :height="fishSize" />
+                    :x="totalXMovement" :y="randomPositionY()" :width="fishSize" :height="fishSize" />
             </template>
             <rect x="181.002" y="288" width="1155" height="580" fill="#00C2FF" fill-opacity="0.3" />
             <path d="M182.123 437.229L1003.57 363.681L182.123 472.637L182.123 437.229Z" fill="white" fill-opacity="0.2" />
@@ -190,23 +190,49 @@ export default {
     props: ['tank'],
     data() {
         return {
-            fishSize: 150,
-            tankWidth: 1330,
-            tankHeight: 871,
-            tankXPosition: 180,
-            tankYPosition: 288,
+            fishSize: 150 as number,
+            tankWidth: 1260 as number,
+            tankHeight: 871 as number,
+            tankXPosition: 210 as number,
+            tankYPosition: 288 as number,
+            fishTimelines: [] as any[],
+        }
+    },
+    computed: {
+        totalXMovement() {
+            return this.tankWidth * 0.9;
+        },
+        fishXTotalArea() {
+            return this.tankWidth - ((this.fishSize * 2) * 1.1);
+        },
+        tlm() {
+            return gsap.timeline();
         }
     },
     mounted() {
-        this.$nextTick(() => {
-            gsap.utils.toArray('.fish').forEach((fishElement) => {
-                gsap.set(fishElement, { scaleX: this.randomDirection(), transformOrigin: 'center center' })
-                gsap.to(fishElement, { x: 'random(0, 200)', y: 'random(0, 100)', duration: 'random(1,5)', repeat: -1, repeatRefresh: true })
-
-            });
-        });
+        this.startTimeline()
+    },
+    watch: {
+        tank() {
+            this.startTimeline()
+        }
     },
     methods: {
+        startTimeline() {
+            this.$nextTick(() => {
+                this.fishTimelines.forEach(tlm => tlm.restart().pause().kill())
+                this.fishTimelines = []
+                gsap.utils.toArray('.fish').forEach(fish => {
+                    const tlm = gsap.timeline({ repeat: -1 })
+                    this.fishTimelines.push(tlm)
+                    tlm
+                        .to(fish, { x: -this.fishXTotalArea, y: 'random(-50, 50)', duration: 'random(5,15)', ease: 'none' })
+                        .to(fish, { scaleX: -1, duration: 0, transformOrigin: 'center center' })
+                        .to(fish, { x: 0, duration: 'random(5,15)', y: 0, ease: 'none' })
+                        .play(30)
+                })
+            })
+        },
         randomPositionY() {
             const min = this.tankYPosition
             const max = this.tankHeight - this.fishSize;
