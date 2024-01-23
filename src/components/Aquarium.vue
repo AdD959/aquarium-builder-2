@@ -317,8 +317,8 @@ export default {
             return randomValue === 0 ? -1 : 1;
         },
         sizeChange(size: number) {
-            this.fishSize = this.fishSize * size
-            this.sizeChangeTLM.restart().pause().kill()
+            this.fishSize = this.originalFishSize * size
+            // this.sizeChangeTLM.restart().pause().kill()
             this.sizeChangeTLM.to('.fish', { scale: size, duration: 0, transformOrigin: 'top top' })
             this.sizeChangeTLM.to(['#rock1', '#rock2', '#seaweed'], { scale: size })
             this.sizeChangeTLM.to('#bg', { scale: size, transformOrigin: 'bottom center' })
