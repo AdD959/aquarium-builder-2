@@ -69,7 +69,7 @@
                             <g class="fish-container">
                                 <image class="fish origin-center"
                                     :href="`./src/assets/fish/${specimen.imageFish}`" :x="tankXPosition" :y="tankYPosition"
-                                    :width="originalFishSize" :height="originalFishSize" />
+                                    :width="getFishSize(specimen.size)" :height="getFishSize(specimen.size)" />
                             </g>
                         </template>
                     </template>
@@ -279,11 +279,11 @@ export default {
         },
         getFishSize(size: String) {
             if (size === "small") {
-                return this.fishSize * 0.5
+                return this.originalFishSize * 0.5
             } else if (size === "medium") {
-                return this.fishSize * 1
+                return this.originalFishSize * 1
             } else {
-                return this.fishSize * 2
+                return this.originalFishSize * 2
             }
         },
         startTimeline(distance: number = 1) {
@@ -299,7 +299,7 @@ export default {
                         .to(fish, { y: this.randomPositionY(), x: this.totalXMovement - 20, duration: 'random(10,15)', ease: 'none', stagger: { start: 'first', each: 1} })
                         .to(fish, { scaleX: 1, duration: 0, transformOrigin: 'center center' })
                         .to(fish, { y: posY, x: 20 , duration: 'random(10,15)', ease: 'none', stagger: { from: 'start', amount: 1} })
-                        .play(0)
+                        .play(500)
                 })
             })
         },
