@@ -1,9 +1,8 @@
 <template>
     <div>
-        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(2)">small</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1.9)">small</button>
         <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1.5)">medium</button>
         <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1)">large</button>
-        <button class="bg-white p-1" @click="flip">FLIP</button>
         <svg viewBox="0 0 1512 982" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="1512" height="982" fill="#1E1E1E" />
             <g id="fish tank frame" clip-path="url(#clip0_0_1)">
@@ -267,7 +266,7 @@ export default {
         }
     },
     mounted() {
-        // this.startTimeline()
+        this.startTimeline()
     },
     watch: {
         tank() {
@@ -291,40 +290,30 @@ export default {
             this.$nextTick(() => {
                 this.fishTimelines.forEach(tlm => tlm.restart().pause().kill())
                 this.fishTimelines = []
-                gsap.utils.toArray('.fish').forEach(fish => {
+                gsap.utils.toArray('.fish-container').forEach(fish => {
+                    let posY = this.randomPositionY()
                     const tlm = gsap.timeline({ repeat: -1 })
                     this.fishTimelines.push(tlm)
                     tlm
-                        .set('.fish-container', { y: `random(0,${this.totalYMovement})`, x: 20, scaleX: -1, duration: 0, transformOrigin: 'center center' })
-                        .to('.fish-container', { y: `random(0,${this.totalYMovement})`, x: this.totalXMovement - 20, duration: 3, ease: 'none', stagger: { start: 'first', each: 1} })
-                        .to('.fish-container', { scaleX: 1, duration: 0, transformOrigin: 'center center' })
-                        .to('.fish-container', { y: `random(0,${this.totalYMovement})`, x: 20 , duration: 3, ease: 'none', stagger: { from: 'start', amount: 1} })
+                        .set(fish, { y: posY, x: 20, scaleX: -1, duration: 0, transformOrigin: 'center center' })
+                        .to(fish, { y: this.randomPositionY(), x: this.totalXMovement - 20, duration: 'random(10,15)', ease: 'none', stagger: { start: 'first', each: 1} })
+                        .to(fish, { scaleX: 1, duration: 0, transformOrigin: 'center center' })
+                        .to(fish, { y: posY, x: 20 , duration: 'random(10,15)', ease: 'none', stagger: { from: 'start', amount: 1} })
                         .play(0)
                 })
             })
         },
         randomPositionY() {
-            const min = this.tankYPosition
-            const max = this.tankHeight - this.fishSize;
+            const min = 0
+            const max = this.tankHeight - this.fishSize
             return Math.floor(Math.random() * (max - min + 1)) + min;
-        },
-        randomPositionX() {
-            const min = this.tankXPosition
-            const max = this.tankWidth - this.fishSize;
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        },
-        randomDirection() {
-            const randomValue = Math.round(Math.random());
-            return randomValue === 0 ? -1 : 1;
-        },
-        flip() {
-            // gsap.to('.fish-container', { scaleX: -1, transformOrigin: 'center center' })
         },
         sizeChange(size: number) {
             this.fishSize = this.originalFishSize * size
             // this.sizeChangeTLM.restart().pause().kill()
             this.sizeChangeTLM.to('.fish', { scale: size, duration: 0, transformOrigin: 'top bottom' })
-            // this.sizeChangeTLM.to(['#rock1', '#rock2', '#seaweed'], { scale: size })
+            gsap.to(['#rock1', '#rock2', '#seaweed', '#bg'], { scale: size, transformOrigin: 'bottom center' })
+            gsap.to('#tank-shadow', { scaleY: size, transformOrigin: 'top center' })
             // this.sizeChangeTLM.to('#bg', { scale: size, transformOrigin: 'bottom center' })
             this.startTimeline(this.fishSize)
         }
