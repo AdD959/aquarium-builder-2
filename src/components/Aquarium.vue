@@ -1,8 +1,9 @@
 <template>
     <div>
-        <button @click="sizeChange(1.5)">small</button>
-        <button @click="sizeChange(1.25)">medium</button>
-        <button @click="sizeChange(1)">large</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(2)">small</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1.5)">medium</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1)">large</button>
+        <button class="bg-white p-1" @click="flip">FLIP</button>
         <svg viewBox="0 0 1512 982" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="1512" height="982" fill="#1E1E1E" />
             <g id="fish tank frame" clip-path="url(#clip0_0_1)">
@@ -64,12 +65,16 @@
                             d="M1241.37 343.646L269.662 343.646L146.311 282.029L1364.69 282.029L1241.37 343.646Z"
                             fill="#257588" />
                     </g>
-                    <!-- <template v-for="specimen in tank">
-                        <image class="fish origin-center" v-for="fish in specimen.quantity"
-                            :href="`./src/assets/fish/${specimen.imageFish}`" :x="totalXMovement" :y="randomPositionY()"
-                            :width="getFishSize(specimen.size)" :height="getFishSize(specimen.size)" />
-                    </template> -->
-                    <rect class="fish origin-center" :x="tankXPosition" :y="tankYPosition" :width="originalFishSize" :height="originalFishSize" fill="black"></rect>
+                    <template v-for="specimen in tank">
+                        <g class="fish-container">
+                            <image class="fish origin-center" v-for="fish in specimen.quantity"
+                                :href="`./src/assets/fish/${specimen.imageFish}`" :x="tankXPosition" :y="tankYPosition"
+                                :width="originalFishSize" :height="originalFishSize" />
+                        </g>
+                    </template>
+                    <!-- <g class="fish-container">
+                        <rect class="fish origin-center" :x="tankXPosition" :y="tankYPosition" :width="originalFishSize" :height="originalFishSize" fill="black"></rect>
+                    </g> -->
                     <g id="seaweed">
                         <path id="Vector 1"
                             d="M548.168 764.787C507.168 797.42 510.373 831.471 518.558 846.396L512.78 845.313L507.002 844.23C497.757 810.141 513.743 786.694 522.891 779.231C577.201 725.499 536.614 723.621 530.835 707.733C526.537 654.578 540.6 611.439 548.168 596.513C550.576 604.457 553.946 622.657 548.168 631.901C542.391 641.145 540.948 691.122 547.447 699.788C564.058 717.121 583.557 736.621 548.168 764.787Z"
@@ -239,7 +244,7 @@ export default {
         return {
             originalFishSize: 150 as number,
             fishSize: 150 as number,
-            tankWidth: 1185 as number,
+            tankWidth: 1155 as number,
             tankHeight: 871 as number,
             // the beginning of the tank, plus some padding so the fish don't hit the edge
             tankXPosition: 169.883 as number,
@@ -253,17 +258,11 @@ export default {
     computed: {
         // the end of the tank, minus some padding so the fish don't hit the edge
         totalXMovement() {
-            return this.tankWidth - this.fishSize
-        },
-        fishXTotalArea() {
-            return this.tankWidth - (this.fishSize * 2.5);
-        },
-        fishYTotalArea() {
-            return this.tankHeight - (this.fishSize * 2.5);
+            return this.tankWidth - (this.fishSize)
         },
         tlm() {
             return gsap.timeline();
-        }
+        },
     },
     mounted() {
         // this.startTimeline()
@@ -293,11 +292,11 @@ export default {
                 gsap.utils.toArray('.fish').forEach(fish => {
                     const tlm = gsap.timeline({ repeat: -1 })
                     this.fishTimelines.push(tlm)
-                    console.log(this.adjustTankSizeFishXDistance(distance))
                     tlm
-                        .to(fish, { x: this.totalXMovement, y: 'random(-50, 50)', duration: 2, ease: 'none' })
-                        // .to(fish, { scaleX: -1, duration: 0, transformOrigin: 'center center' })
-                        // .to(fish, { x: `+=${this.fishXTotalArea}`, duration: 'random(5,15)', y: 0, ease: 'none' })
+                        .set('.fish-container', { x: 20, scaleX: -1, duration: 0, transformOrigin: 'center center' })
+                        .to('.fish-container', { x: this.totalXMovement - 20, y: 'random(-50, 50)', duration: 3, ease: 'none' })
+                        .to('.fish-container', { scaleX: 1, duration: 0, transformOrigin: 'center center' })
+                        .to('.fish-container', { x: 20 , duration: 3, y: 0, ease: 'none' })
                         .play()
                 })
             })
@@ -316,13 +315,16 @@ export default {
             const randomValue = Math.round(Math.random());
             return randomValue === 0 ? -1 : 1;
         },
+        flip() {
+            // gsap.to('.fish-container', { scaleX: -1, transformOrigin: 'center center' })
+        },
         sizeChange(size: number) {
             this.fishSize = this.originalFishSize * size
             // this.sizeChangeTLM.restart().pause().kill()
-            this.sizeChangeTLM.to('.fish', { scale: size, duration: 0, transformOrigin: 'top top' })
-            this.sizeChangeTLM.to(['#rock1', '#rock2', '#seaweed'], { scale: size })
-            this.sizeChangeTLM.to('#bg', { scale: size, transformOrigin: 'bottom center' })
-            this.startTimeline(size)
+            this.sizeChangeTLM.to('.fish', { scale: size, duration: 0, transformOrigin: 'top bottom' })
+            // this.sizeChangeTLM.to(['#rock1', '#rock2', '#seaweed'], { scale: size })
+            // this.sizeChangeTLM.to('#bg', { scale: size, transformOrigin: 'bottom center' })
+            this.startTimeline(this.fishSize)
         }
     }
 }
