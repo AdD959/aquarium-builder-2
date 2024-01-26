@@ -37,14 +37,14 @@
                 <g id="tank">
                     <g id="glass-n-bottom">
                         <rect id="Rectangle 87" x="146.311" y="875.229" width="1218.38" height="54.7703" fill="#1A445F" />
-                        <!-- <g id="non-front-glass">
+                        <g id="non-front-glass">
                             <path id="sideglass-r" d="M1242 342.204L1336 296V862L1242 815.294V342.204Z" fill="white"
                                 fill-opacity="0.5" />
                             <path id="sideglass-l" d="M269 815.73L181 859L181 298L269 341.27L269 815.73Z" fill="white"
                                 fill-opacity="0.5" />
                             <rect id="backglass" x="270.076" y="340.078" width="971.842" height="475.843" fill="white"
                                 fill-opacity="0.3" />
-                        </g> -->
+                        </g>
                         <path id="Rectangle 88" d="M269.625 813.613H1241.34L1364.69 875.23H146.311L269.625 813.613Z"
                             fill="#2C6878" />
                     </g>
@@ -66,15 +66,14 @@
                             fill="#257588" />
                     </g>
                     <template v-for="specimen in tank">
-                        <g class="fish-container">
-                            <image class="fish origin-center" v-for="fish in specimen.quantity"
-                                :href="`./src/assets/fish/${specimen.imageFish}`" :x="tankXPosition" :y="tankYPosition"
-                                :width="originalFishSize" :height="originalFishSize" />
-                        </g>
+                        <template v-for="fish in specimen.quantity">
+                            <g class="fish-container">
+                                <image class="fish origin-center"
+                                    :href="`./src/assets/fish/${specimen.imageFish}`" :x="tankXPosition" :y="tankYPosition"
+                                    :width="originalFishSize" :height="originalFishSize" />
+                            </g>
+                        </template>
                     </template>
-                    <!-- <g class="fish-container">
-                        <rect class="fish origin-center" :x="tankXPosition" :y="tankYPosition" :width="originalFishSize" :height="originalFishSize" fill="black"></rect>
-                    </g> -->
                     <g id="seaweed">
                         <path id="Vector 1"
                             d="M548.168 764.787C507.168 797.42 510.373 831.471 518.558 846.396L512.78 845.313L507.002 844.23C497.757 810.141 513.743 786.694 522.891 779.231C577.201 725.499 536.614 723.621 530.835 707.733C526.537 654.578 540.6 611.439 548.168 596.513C550.576 604.457 553.946 622.657 548.168 631.901C542.391 641.145 540.948 691.122 547.447 699.788C564.058 717.121 583.557 736.621 548.168 764.787Z"
@@ -118,7 +117,7 @@
                             d="M1087.17 807.579C1091.59 811.36 1097.23 815.222 1100.65 814.539C1104.91 813.687 1126.84 805.872 1140.92 800.746C1134.55 799.7 1121.88 798.832 1115.49 798.49C1109.56 804.985 1098.47 806.113 1091.99 806.772C1089.55 807.02 1087.77 807.201 1087.17 807.579Z"
                             fill="url(#paint15_linear_0_1)" />
                     </g>
-                    <!-- <g id="front-glass-lights">
+                    <g id="front-glass-lights">
                         <rect id="front-glass-panel" x="181.002" y="288" width="1155" height="580" fill="#00C2FF"
                             fill-opacity="0.3" />
                         <g id="light-streaks">
@@ -129,8 +128,8 @@
                             <path id="Rectangle 103" d="M182.002 288H1336V413.433L182.002 584.021V288Z" fill="white"
                                 fill-opacity="0.16" />
                         </g>
-                    </g> -->
-                    <!-- <rect id="tank-light" x="170" y="288" width="1177" height="583" fill="url(#paint16_radial_0_1)" /> -->
+                    </g>
+                    <rect id="tank-light" x="170" y="288" width="1177" height="583" fill="url(#paint16_radial_0_1)" />
                     <g id="shadows">
                         <path id="Intersect_6" fill-rule="evenodd" clip-rule="evenodd"
                             d="M631.097 282.03L608.225 227.259L959.622 227.259L980.005 282.03L631.097 282.03Z"
@@ -245,7 +244,7 @@ export default {
             originalFishSize: 150 as number,
             fishSize: 150 as number,
             tankWidth: 1155 as number,
-            tankHeight: 871 as number,
+            tankHeight: 580 as number,
             // the beginning of the tank, plus some padding so the fish don't hit the edge
             tankXPosition: 169.883 as number,
             // the end of the tank, plus some padding so the fish don't hit the edge
@@ -258,11 +257,14 @@ export default {
     computed: {
         // the end of the tank, minus some padding so the fish don't hit the edge
         totalXMovement() {
-            return this.tankWidth - (this.fishSize)
+            return this.tankWidth - this.fishSize
         },
         tlm() {
             return gsap.timeline();
         },
+        totalYMovement() {
+            return this.tankHeight - this.fishSize
+        }
     },
     mounted() {
         // this.startTimeline()
@@ -293,11 +295,11 @@ export default {
                     const tlm = gsap.timeline({ repeat: -1 })
                     this.fishTimelines.push(tlm)
                     tlm
-                        .set('.fish-container', { x: 20, scaleX: -1, duration: 0, transformOrigin: 'center center' })
-                        .to('.fish-container', { x: this.totalXMovement - 20, y: 'random(-50, 50)', duration: 3, ease: 'none' })
+                        .set('.fish-container', { y: `random(0,${this.totalYMovement})`, x: 20, scaleX: -1, duration: 0, transformOrigin: 'center center' })
+                        .to('.fish-container', { y: `random(0,${this.totalYMovement})`, x: this.totalXMovement - 20, duration: 3, ease: 'none', stagger: { start: 'first', each: 1} })
                         .to('.fish-container', { scaleX: 1, duration: 0, transformOrigin: 'center center' })
-                        .to('.fish-container', { x: 20 , duration: 3, y: 0, ease: 'none' })
-                        .play()
+                        .to('.fish-container', { y: `random(0,${this.totalYMovement})`, x: 20 , duration: 3, ease: 'none', stagger: { from: 'start', amount: 1} })
+                        .play(0)
                 })
             })
         },
