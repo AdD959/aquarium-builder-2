@@ -272,6 +272,9 @@ export default {
         tank() {
             this.startTimeline()
         },
+        fishSize() {
+            this.startTimeline()
+        }
     },
     methods: {
         adjustTankSizeFishXDistance(size: number) {
@@ -286,7 +289,7 @@ export default {
                 return this.originalFishSize * 2
             }
         },
-        startTimeline(distance: number = 1) {
+        startTimeline() {
             this.$nextTick(() => {
                 this.fishTimelines.forEach(tlm => tlm.restart().pause().kill())
                 this.fishTimelines = []
@@ -296,9 +299,9 @@ export default {
                     this.fishTimelines.push(tlm)
                     tlm
                         .set(fish, { y: posY, x: 20, scaleX: -1, duration: 0, transformOrigin: 'center center' })
-                        .to(fish, { y: this.randomPositionY(), x: this.totalXMovement - 20, duration: 'random(10,15)', ease: 'none', stagger: { start: 'first', each: 1} })
+                        .to(fish, { y: this.randomPositionY(), x: this.totalXMovement, duration: 'random(10,15)', ease: 'none', stagger: { start: 'first', each: 1} })
                         .to(fish, { scaleX: 1, duration: 0, transformOrigin: 'center center' })
-                        .to(fish, { y: posY, x: 20 , duration: 'random(10,15)', ease: 'none', stagger: { from: 'start', amount: 1} })
+                        .to(fish, { y: posY, x: 20, duration: 'random(10,15)', ease: 'none', stagger: { from: 'start', amount: 1} })
                         .play(500)
                 })
             })
@@ -315,7 +318,7 @@ export default {
             gsap.to(['#rock1', '#rock2', '#seaweed', '#bg'], { scale: size, transformOrigin: 'bottom center' })
             gsap.to('#tank-shadow', { scaleY: size, transformOrigin: 'top center' })
             // this.sizeChangeTLM.to('#bg', { scale: size, transformOrigin: 'bottom center' })
-            this.startTimeline(this.fishSize)
+            this.startTimeline()
         }
     }
 }
