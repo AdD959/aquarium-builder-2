@@ -1,8 +1,8 @@
 <template>
     <div>
         <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(2)">small</button>
-        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1.5)">medium</button>
-        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1)">large</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1)">medium</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(0.5)">large</button>
         <svg viewBox="0 0 1512 982" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="1512" height="982" fill="#1E1E1E" />
             <g id="fish tank frame" clip-path="url(#clip0_0_1)">
@@ -314,8 +314,8 @@ export default {
         },
         sizeChange(size: number) {
             this.fishSize = this.originalFishSize * size
-            gsap.to(['#rock1', '#rock2', '#seaweed', '#bg'], { scale: size, transformOrigin: 'bottom center' })
-            gsap.to('#tank-shadow', { scaleY: size, transformOrigin: 'top center' })
+            gsap.to(['#rock1', '#rock2', '#seaweed', '#bg'], { scale: size === 0.5 ? 1 : size, transformOrigin: 'bottom center' })
+            gsap.to('#tank-shadow', { scaleY: size === 0.5 ? 1 : size, transformOrigin: 'top center' })
             this.sizeChangeTLM.to('#bg', { scale: size, transformOrigin: 'bottom center' })
             this.startTimeline()
         }
