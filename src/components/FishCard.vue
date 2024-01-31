@@ -31,7 +31,7 @@
             <div class="flex flex-col justify-end relative w-full h-full">
                 <h2 class="text-xl cursor-default font-bold">{{ data.name.toUpperCase() }}</h2>
                 <p
-                    class="max-h-0 overflow-hidden group-hover:max-h-[96px] text-base transition-all duration-300 mt-2 mb-3 cursor-default">
+                    class="max-h-0 overflow-hidden overflow-y-auto group-hover:max-h-[96px] text-base transition-all duration-300 mt-2 mb-3 cursor-default">
                     {{ data.description }}
                 </p>
                 <div class="flex justify-between">
