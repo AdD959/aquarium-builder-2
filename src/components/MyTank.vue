@@ -36,7 +36,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import Aquarium from './Aquarium.vue'
 export default {
     name: 'MyTank',
