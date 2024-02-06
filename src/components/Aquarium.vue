@@ -1,8 +1,8 @@
 <template>
     <div>
-        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(2)">small</button>
-        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(1)">medium</button>
-        <button class="bg-green-900 text-white p-1 mr-1" @click="sizeChange(0.5)">large</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="baseSize = 0.5">small</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="baseSize = 1">medium</button>
+        <button class="bg-green-900 text-white p-1 mr-1" @click="baseSize = 2">large</button>
         <svg viewBox="0 0 1512 982" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="1512" height="982" fill="#1E1E1E" />
             <g id="fish tank frame" clip-path="url(#clip0_0_1)">
@@ -66,10 +66,7 @@
                     </g>
                     <template v-for="specimen in tank">
                         <template v-for="fish in specimen.quantity">
-                            <g class="fish-container" :data-size="specimen.size">
-                                <image class="fish origin-center" :height="fishSize" :width="fishSize"
-                                    :href="`./src/assets/fish/${specimen.imageFish}`" :x="tankXPosition" :y="tankYPosition" />
-                            </g>
+                            <AquariumFish :fish="specimen.imageFish" :sizeChange="baseSize" :size="specimen.size" :posYStart="randomPositionY()" :postYEnd="randomPositionY()" :xMovement="totalXMovement" :fishAnimation="fishAnimation" :tankHeight="tankHeight"/>
                         </template>
                     </template>
                     <g id="seaweed">
@@ -235,18 +232,21 @@
 
 <script lang="ts">
 import { gsap } from 'gsap';
+import AquariumFish from './AquariumFish.vue'
 export default {
     props: ['tank'],
+    components: {
+        AquariumFish
+    },
     data() {
         return {
             originalFishSize: 150 as number,
             fishSize: 150 as number,
             tankWidth: 1155 as number,
             tankHeight: 580 as number,
-            tankXPosition: 169.883 as number,
-            tankYPosition: 288 as number,
             fishTimelines: [] as any[],
             tankSize: 1 as number,
+            baseSize: 1 as number,
             sizeChangeTLM: gsap.timeline(),
             fishAnimation: {
                 duration: 'random(5,10)',
@@ -292,19 +292,19 @@ export default {
         },
         startTimeline() {
             this.$nextTick(() => {
-                this.fishTimelines.forEach(tlm => tlm.restart().pause().kill())
-                this.fishTimelines = []
-                gsap.utils.toArray('.fish-container').forEach((fish, i) => {
-                    let posY = this.randomPositionY()
-                    const tlm = gsap.timeline({ repeat: -1 })
-                    this.fishTimelines.push(tlm)
-                    tlm
-                        .set(fish, { y: posY, x: this.fishSize + 20, scaleX: -1, duration: 0, transformOrigin: 'bottom top' })
-                        .to(fish, { y: this.randomPositionY(), x: this.totalXMovement, duration: this.fishAnimation.duration, ease: this.fishAnimation.ease, stagger: { start: 'first', each: 1} })
-                        .to(fish, { scaleX: 1, duration: 0, transformOrigin: 'center center', x: '-=0' })
-                        .to(fish, { y: posY, x: this.fishSize + 20, duration: this.fishAnimation.duration, ease: this.fishAnimation.ease, stagger: { from: 'start', amount: 1} })
-                        .play(50)
-                })
+                // this.fishTimelines.forEach(tlm => tlm.restart().pause().kill())
+                // this.fishTimelines = []
+                // gsap.utils.toArray('.fish-container').forEach((fish, i) => {
+                //     let posY = this.randomPositionY()
+                //     const tlm = gsap.timeline({ repeat: -1 })
+                //     this.fishTimelines.push(tlm)
+                //     tlm
+                //         .set(fish, { y: posY, x: this.fishSize + 20, scaleX: -1, duration: 0, transformOrigin: 'bottom top' })
+                //         .to(fish, { y: this.randomPositionY(), x: this.totalXMovement, duration: this.fishAnimation.duration, ease: this.fishAnimation.ease, stagger: { start: 'first', each: 1} })
+                //         .to(fish, { scaleX: 1, duration: 0, transformOrigin: 'center center', x: '-=0' })
+                //         .to(fish, { y: posY, x: this.fishSize + 20, duration: this.fishAnimation.duration, ease: this.fishAnimation.ease, stagger: { from: 'start', amount: 1} })
+                //         .play(50)
+                // })
             })
         },
         randomPositionY() {
@@ -313,11 +313,11 @@ export default {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         },
         sizeChange(size: number) {
-            this.fishSize = this.originalFishSize * size
-            gsap.to(['#rock1', '#rock2', '#seaweed', '#bg'], { scale: size === 0.5 ? 1 : size, transformOrigin: 'bottom center' })
-            gsap.to('#tank-shadow', { scaleY: size === 0.5 ? 1 : size, transformOrigin: 'top center' })
-            this.sizeChangeTLM.to('#bg', { scale: size, transformOrigin: 'bottom center' })
-            this.startTimeline()
+            // this.fishSize = this.originalFishSize * size
+            // gsap.to(['#rock1', '#rock2', '#seaweed', '#bg'], { scale: size === 0.5 ? 1 : size, transformOrigin: 'bottom center' })
+            // gsap.to('#tank-shadow', { scaleY: size === 0.5 ? 1 : size, transformOrigin: 'top center' })
+            // this.sizeChangeTLM.to('#bg', { scale: size, transformOrigin: 'bottom center' })
+            // this.startTimeline()
         }
     }
 }
