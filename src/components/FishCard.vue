@@ -74,7 +74,8 @@
 <script lang="ts">
 import { gsap } from 'gsap';
 import Bubbles from './Bubbles.vue';
-export default {
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
     props: ['data'],
     components: {
         Bubbles
@@ -83,19 +84,19 @@ export default {
         return {
             randomIndex: 1,
             randomDelay: 0,
-            size: 0,
+            size: '',
             width: 0.666,
-            fish1TLM: null,
-            fish2TLM: null,
-            fish34TLM: null,
-            fish1: null,
-            fish2: null,
-            fish3: null,
-            fish4: null,
+            fish1TLM: gsap.timeline(),
+            fish2TLM: gsap.timeline(),
+            fish34TLM: gsap.timeline(),
+            fish1: ref,
+            fish2: ref,
+            fish3: ref,
+            fish4: ref,
             danger: false,
-            fish1Img: null,
-            fish2Img: null,
-            fish3Img: null,
+            fish1Img: ref,
+            fish2Img: ref,
+            fish3Img: ref,
             fish4Img: null,
         }
     },
@@ -104,7 +105,7 @@ export default {
             if (newVal === 0) {
                 this.danger = false
             } else if (newVal >= 1) {
-                gsap.fromTo(this.$refs.ping, { scale: 1, opacity: 1 }, { scale: 1, duration: 0.2, opacity: 0, ease: 'power1.out' })
+                gsap.fromTo(this.$refs.ping as HTMLElement, { scale: 1, opacity: 1 }, { scale: 1, duration: 0.2, opacity: 0, ease: 'power1.out' })
             }
         },
     },
@@ -114,15 +115,15 @@ export default {
         this.size = this.getSize()
         const animation_duration = 1
 
-        this.fish1 = this.$refs.fish1 as HTMLElement;
-        this.fish2 = this.$refs.fish2 as HTMLElement;
-        this.fish3 = this.$refs.fish3 as HTMLElement;
-        this.fish4 = this.$refs.fish4 as HTMLElement;
+        this.fish1 = this.$refs.fish1 as typeof ref
+        this.fish2 = this.$refs.fish2 as typeof ref
+        this.fish3 = this.$refs.fish3 as typeof ref
+        this.fish4 = this.$refs.fish4 as typeof ref
 
-        let posoffish1 = null
+        let posoffish1 = undefined
         this.fish1TLM = gsap.timeline({ paused: true })
             .fromTo(this.fish1, { x: '100%', y: '50%', onBegin: () => { posoffish1 = gsap.getProperty(this.fish1, 'y') }}, { x: 0, y: 0, duration: animation_duration, delay: 0.5 })
-        let posoffish2 = null
+        let posoffish2 = undefined
         this.fish2TLM = gsap.timeline({ paused: true })
             .fromTo(this.fish2, { x: 0, y: posoffish2, onBegin: () => { posoffish2 = gsap.getProperty(this.fish2, 'y') } }, { x: '-100%', y: '-50%', duration: animation_duration })
         this.fish34TLM = gsap.timeline({ paused: true })
@@ -130,7 +131,7 @@ export default {
             .fromTo(this.fish4, { x: 0, y: 0 }, { x: '-200%', y: '-100%', duration: animation_duration * 2 }, 0)
     },
     methods: {
-        getWidth(element) {
+        getWidth(element: HTMLElement) {
             return element.offsetWidth + 50
         },
         addToTank() {
@@ -156,6 +157,6 @@ export default {
             }
         },
     }
-}
+})
 </script>
 

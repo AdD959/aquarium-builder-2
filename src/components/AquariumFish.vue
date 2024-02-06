@@ -24,12 +24,11 @@ export default {
             return 3 / this.sizeChange
         },
         maxPosY() {
-            console.log(this.tankHeight - this.fishWidth)
             return this.tankHeight - this.fishWidth
         }
     },
     mounted() {
-        this.tlm = gsap.timeline({ repeat: -1, paused: true });
+        this.tlm = gsap.timeline({ repeat: -1, paused: true })
 
         this.$nextTick(() => {
             this.animate(this.tlm);
