@@ -19,6 +19,7 @@ export default {
     'group-hover:w-10/12',
     'group-hover:w-1/3',
     'group-hover:w-2/3',
+    '-scale-y-100'
   ],
   theme: {
     extend: {

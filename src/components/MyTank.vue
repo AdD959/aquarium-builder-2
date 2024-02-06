@@ -5,7 +5,7 @@
         </div>
         <div class="flex ml-3 min-w-min fixed top-10" :class="open ? 'right-0' : '-right-full'">
             <div class="transition-all duration-250 w-[600px]">
-                <img class="w-full" src="../assets/tank.svg" alt="">
+                <Aquarium :tank="tank" />
                 <div class="bg-[#DBF5E5] p-4 flex flex-col gap-2">
                     <div v-for="fish in tank">
                         <div class="flex gap-2 relative h-16 items-center">
@@ -16,15 +16,17 @@
                                 </div>
                                 <div class="relative h-full flex gap-1">
                                     <div class="w-12 h-full bg-white flex items-center justify-center">
-                                        {{  fish.quantity }}
+                                        {{ fish.quantity }}
                                     </div>
                                     <div class="w-12 h-full bg-white"></div>
                                     <div class="w-12 h-full bg-white"></div>
                                 </div>
                             </div>
                             <div class="flex gap-2">
-                                <button @click="add(fish)" class="bg-blue-500 w-8 h-8 rounded-full text-white flex items-center justify-center text-2xl leading-none">+</button>
-                                <button @click="remove(fish)" class="bg-red-500 w-8 h-8 rounded-full text-white flex items-center justify-center text-2xl leading-none">-</button>
+                                <button @click="add(fish)"
+                                    class="bg-blue-500 w-8 h-8 rounded-full text-white flex items-center justify-center text-2xl leading-none">+</button>
+                                <button @click="remove(fish)"
+                                    class="bg-red-500 w-8 h-8 rounded-full text-white flex items-center justify-center text-2xl leading-none">-</button>
                             </div>
                         </div>
                     </div>
@@ -34,13 +36,17 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Aquarium from './Aquarium.vue'
 export default {
     name: 'MyTank',
     props: ['tank'],
+    components: {
+        Aquarium,
+    },
     data() {
         return {
-            open: false,
+            open: true,
         };
     },
     methods: {

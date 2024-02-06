@@ -19,9 +19,6 @@
                         :src="`./src/assets/fish/${data.imageFish}`" alt="">
                 </div>
             </div>
-            <div
-                class="w-full h-full bg-black absolute top-0 left-0 group-hover:opacity-50 opacity-20 transition-all duration-600">
-            </div>
             <div class="w-full h-full absolute top-0 left-0" ref="fish1">
                 <div class="animate-bob h-full" :class="`animation-delay-[-${randomDelay}ms]`">
                     <img :class="data.customWidth ? data.customWidth : 'w-3/5', getSize()" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg] group-hover:blur-[2px] transition-all duration-300"
@@ -32,9 +29,9 @@
                 class="w-full h-full bg-black absolute top-0 left-0 opacity-10 group-hover:opacity-50 transition-all duration-600">
             </div>
             <div class="flex flex-col justify-end relative w-full h-full">
-                <h2 class="text-2xl cursor-default">{{ data.name.toUpperCase() }}</h2>
+                <h2 class="text-xl cursor-default font-bold">{{ data.name.toUpperCase() }}</h2>
                 <p
-                    class="max-h-0 overflow-hidden group-hover:max-h-[96px] transition-all duration-300 mt-2 mb-3 cursor-default">
+                    class="max-h-0 overflow-hidden overflow-y-auto group-hover:max-h-[96px] text-base transition-all duration-300 mt-2 mb-3 cursor-default">
                     {{ data.description }}
                 </p>
                 <div class="flex justify-between">

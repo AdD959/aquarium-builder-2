@@ -1,6 +1,6 @@
 <template>
-  <body class="flex mt-10 px-20 max-w-screen-2xl mx-auto">
-    <main class="grid grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))] gap-3 bg-black flex-1">
+  <body class="flex mt-10 px-20 max-w-screen-xl mx-auto">
+    <main class="grid grid-cols-[repeat(auto-fill,_minmax(250px,_1fr))] gap-3 bg-black flex-1">
       <div class="bg-[#2f2e2e] p-6 px-8 flex flex-col gap-1 relative justify-between aspect-square group overflow-auto">
         <div class="flex justify-between flex-col">
           <label for="search" class="text-white text-xs">Size</label>
