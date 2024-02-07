@@ -50,10 +50,10 @@ export default {
         };
     },
     methods: {
-        remove(fish) {
+        remove(fish: any) {
             this.$emit('remove-from-tank', fish)
         },
-        add(fish) {
+        add(fish: any) {
             this.$emit('add-to-tank', fish)
         },
     },

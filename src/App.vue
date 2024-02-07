@@ -31,19 +31,19 @@
             <div class="text-white">
               <label for="search" class="text-white text-xs">Difficulty</label>
               <div class="flex gap-2 mt-1">
-                <div @click="difficulty = 1; anyDifficulty = false"
+                <div @click="difficulty = 1"
                   :class="difficulty >= 1 ? 'bg-green-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
                 </div>
-                <div @click="difficulty = 2; anyDifficulty = false"
+                <div @click="difficulty = 2"
                   :class="difficulty >= 2 ? 'bg-yellow-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
                 </div>
-                <div @click="difficulty = 3; anyDifficulty = false"
+                <div @click="difficulty = 3"
                   :class="difficulty >= 3 ? 'bg-amber-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
                 </div>
-                <div @click="difficulty = 4; anyDifficulty = false"
+                <div @click="difficulty = 4"
                   :class="difficulty >= 4 ? 'bg-orange-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
                 </div>
-                <div @click="difficulty = 5; anyDifficulty = false"
+                <div @click="difficulty = 5"
                   :class="difficulty >= 5 ? 'bg-red-600' : 'bg-gray-300'" class="w-4 h-4 rounded-full cursor-pointer">
                 </div>
               </div>
@@ -78,7 +78,13 @@ import FishCard from './components/FishCard.vue'
 import fishLibrary from './data/fish.json'
 import Bubbles from './components/Bubbles.vue'
 import MyTank from './components/MyTank.vue'
-export default {
+import { defineComponent } from 'vue';
+interface Fish {
+  id: number;
+  // Other properties of Fish
+}
+
+export default defineComponent( {
   components: {
     FishCard,
     Bubbles,
@@ -104,16 +110,21 @@ export default {
         localStorage.removeItem('my-tank');
       }
     } else {
+        // @ts-ignore
       this.myTank = this.fishLibrary;
       localStorage.setItem('my-tank', JSON.stringify(this.myTank));
     }
   },
   computed: {
-    filteredFish() {
+    filteredFish(): Fish[]  {
       return this.myTank.filter(fish => {
+        // @ts-ignore
         const nameMatch = fish.name.toLowerCase().replaceAll(' ', '').includes(this.search.toLowerCase().replaceAll(' ', ''));
+        // @ts-ignore
         const typeMatch = this.type.some(type => fish.type.includes(type));
+        // @ts-ignore
         const difficultyMatch = this.difficulty !== 0 ? fish.difficulty <= this.difficulty : true;
+        // @ts-ignore
         const sizeMatch = this.size.some(size => fish.size.includes(size));
 
         return nameMatch && typeMatch && difficultyMatch && sizeMatch;
@@ -125,7 +136,7 @@ export default {
     getFish() {
       return this.fishLibrary;
     },
-    selectType(selectedType) {
+    selectType(selectedType: string) {
       const index = this.type.indexOf(selectedType);
       if (index !== -1) {
         this.type.splice(index, 1);
@@ -133,7 +144,7 @@ export default {
         this.type.push(selectedType);
       }
     },
-    selectSize(selectedSize) {
+    selectSize(selectedSize: string) {
       const index = this.size.indexOf(selectedSize);
 
       if (index !== -1) {
@@ -143,13 +154,16 @@ export default {
       }
     },
     getTank() {
+      // @ts-ignore
       return this.myTank.filter(fish => fish.quantity && fish.quantity > 0);
     },
-    tankAdd(newFish) {
+    tankAdd(newFish: any) {
+      // @ts-ignore
       this.myTank.find(fish => fish.id === newFish.id).quantity++;
       this.updateLocalStorage();
     },
-    tankRemove(newFish) {
+    tankRemove(newFish: any) {
+      // @ts-ignore
       this.myTank.find(fish => fish.id === newFish.id).quantity--;
       this.updateLocalStorage();
     },
@@ -157,5 +171,5 @@ export default {
       localStorage.setItem('my-tank', JSON.stringify(this.myTank));
     }
   }
-};
+})
 </script>
