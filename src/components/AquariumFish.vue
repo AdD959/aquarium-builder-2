@@ -1,7 +1,7 @@
 <template>
     <g class="fish-container" ref="fishContainer">
         <image class="fish" :height="getSize(size)" :width="getSize(size)" ref="fish"
-            :href="`./src/assets/fish/${fish}`" :x="tankXPosition" :y="tankYPosition" />
+            :href="`./assets/fish/${fish}`" :x="tankXPosition" :y="tankYPosition" />
     </g>
 </template>
   

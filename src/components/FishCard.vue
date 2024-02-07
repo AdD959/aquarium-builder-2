@@ -3,26 +3,26 @@
         :class="data.quantity > 0 ? 'border-white shadow-white shadow-fish-card transition-all duration-0' : 'border-black'">
         <div class="flex flex-col relative p-6 px-8">
             <img class="absolute top-0 left-0 w-full h-full blur-sm group-hover:blur-md"
-                :src="`./src/assets/fish-card-backgrounds/${data.type}${randomIndex}.png`" alt="background image" />
+                :src="`./assets/fish-card-backgrounds/${data.type}${randomIndex}.png`" alt="background image" />
             <Bubbles />
             <div class="w-full h-full absolute top-1/2 -right-full" ref="fish4">
                 <img class="w-1/4 absolute top-1/3 left-1/2 -translate-x-1/2 rotate-[20deg] blur-sm"
-                    :src="`./src/assets/fish/${data.imageFish}`" alt="">
+                    :src="`./assets/fish/${data.imageFish}`" alt="">
             </div>
             <div class="w-full h-full absolute top-1/4 -right-full" ref="fish3">
                 <img class="w-1/3 absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg] blur-sm"
-                    :src="`./src/assets/fish/${data.imageFish}`" alt="">
+                    :src="`./assets/fish/${data.imageFish}`" alt="">
             </div>
             <div class="w-full h-full absolute top-0 left-0" ref="fish2">
                 <div class="animate-bob h-full" :class="`animation-delay-[-${randomDelay}ms]`">
                     <img :class="data.customWidth ? data.customWidth : 'w-3/5'" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg]"
-                        :src="`./src/assets/fish/${data.imageFish}`" alt="">
+                        :src="`./assets/fish/${data.imageFish}`" alt="">
                 </div>
             </div>
             <div class="w-full h-full absolute top-0 left-0" ref="fish1">
                 <div class="animate-bob h-full" :class="`animation-delay-[-${randomDelay}ms]`">
                     <img :class="data.customWidth ? data.customWidth : 'w-3/5', getSize()" class="absolute top-1/3 -translate-y-1/2 left-1/2 -translate-x-1/2 rotate-[20deg] group-hover:blur-[2px] transition-all duration-300"
-                        :src="`./src/assets/fish/${data.imageFish}`" alt="">
+                        :src="`./assets/fish/${data.imageFish}`" alt="">
                 </div>
             </div>
             <div
