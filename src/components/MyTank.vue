@@ -11,7 +11,7 @@
                         <div class="flex gap-2 relative h-16 items-center">
                             <div class="bg-[#2f2e2e] h-full py-2 px-2 pl-4 flex items-center justify-between w-full">
                                 <div class="flex items-center">
-                                    <img :src="`./src/assets/fish/${fish.imageFish}`" class="w-14 mr-5 max-h-14" alt="">
+                                    <img :src="`./assets/fish/${fish.imageFish}`" class="w-14 mr-5 max-h-14" alt="">
                                     <h3 class="text-base text-white">{{ fish.name }}</h3>
                                 </div>
                                 <div class="relative h-full flex gap-1">
